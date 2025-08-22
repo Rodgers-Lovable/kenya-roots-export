@@ -1,0 +1,357 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Users, Award, Shield, Globe, Coffee, Droplets, Package, FileText, Truck, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import coffeeCherry from "@/assets/coffee-cherries.jpg";
+import coffeeDrying from "@/assets/coffee-drying.jpg";
+import qualityControl from "@/assets/quality-control.jpg";
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Sourcing & Partnerships",
+    icon: Users,
+    image: coffeeCherry,
+    description: "Building direct relationships with farmers and cooperatives",
+    details: [
+      "Partner with 50+ cooperatives and estates across Kenya",
+      "Direct farmer relationships ensuring fair pricing",
+      "Regular field visits and quality assessments",
+      "Support for sustainable farming practices",
+      "Pre-financing and harvest planning"
+    ],
+    timeframe: "Year-round relationship building"
+  },
+  {
+    step: "02", 
+    title: "Processing & Quality Control",
+    icon: Droplets,
+    image: coffeeDrying,
+    description: "From cherry to green bean with meticulous quality standards",
+    details: [
+      "Washed processing for 85% of our coffees",
+      "Natural and honey processing for specialty lots",
+      "Moisture content monitoring (10-12% target)",
+      "Screen size grading and density sorting",
+      "Professional cupping by licensed Q Graders"
+    ],
+    timeframe: "2-4 weeks post-harvest"
+  },
+  {
+    step: "03",
+    title: "Storage & Lot Preparation", 
+    icon: Package,
+    image: qualityControl,
+    description: "Proper storage and preparation for export",
+    details: [
+      "Climate-controlled warehouse storage",
+      "GrainPro barrier bags for moisture protection",
+      "Jute bag packaging with lot identification",
+      "Final quality control and sample preparation",
+      "Inventory management and lot tracking"
+    ],
+    timeframe: "1-2 weeks preparation"
+  },
+  {
+    step: "04",
+    title: "Export Documentation",
+    icon: FileText,
+    image: qualityControl,
+    description: "Complete certification and export compliance",
+    details: [
+      "Phytosanitary certificates from KEPHIS",
+      "Certificate of Origin from Kenya Coffee Board",
+      "ICO (International Coffee Organization) permits",
+      "Commercial invoices and packing lists",
+      "Bill of lading and shipping instructions"
+    ],
+    timeframe: "3-5 business days"
+  },
+  {
+    step: "05",
+    title: "Logistics & Shipping",
+    icon: Truck,
+    image: coffeeCherry,
+    description: "Reliable shipping from Port of Mombasa worldwide",
+    details: [
+      "Secure transportation to Port of Mombasa",
+      "Container loading and stuffing supervision",
+      "Shipping coordination with global partners",
+      "Real-time tracking and updates",
+      "Insurance coverage for all shipments"
+    ],
+    timeframe: "2-4 weeks transit time"
+  }
+];
+
+const qualityStandards = [
+  {
+    icon: Award,
+    title: "Professional Cupping",
+    description: "Every lot cupped by licensed Q Graders using SCAA protocols",
+    standard: "85+ Cup Score Minimum"
+  },
+  {
+    icon: Droplets,
+    title: "Moisture Content",
+    description: "Precise moisture control for optimal storage and shipping",
+    standard: "10-12% Moisture Range"
+  },
+  {
+    icon: Coffee,
+    title: "Grade Classification",
+    description: "Accurate screen size grading and defect analysis",
+    standard: "AA/AB/PB Standards"
+  },
+  {
+    icon: Shield,
+    title: "Traceability",
+    description: "Complete chain of custody from farm to export",
+    standard: "100% Lot Traceability"
+  }
+];
+
+const customServices = [
+  "Custom processing requests (natural, honey, experimental)",
+  "Harvest reservations and pre-orders",
+  "Sample roasting and cup profile development",
+  "Private lot sourcing from specific farms",
+  "Packaging customization and branding",
+  "Storage and shipping schedule coordination"
+];
+
+export default function Process() {
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="py-24 bg-gradient-hero text-warm-cream">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-6xl font-playfair font-bold mb-6 text-shadow-warm">
+            Our Process
+            <span className="block text-accent-gold">From Harvest to Export, Handled with Precision</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-warm-cream/90 mb-8 max-w-3xl mx-auto">
+            Every step in our process is designed to preserve and enhance the exceptional 
+            quality that makes Kenyan coffee world-renowned.
+          </p>
+        </div>
+      </section>
+
+      {/* Process Timeline */}
+      <section className="py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-playfair font-bold text-coffee-brown mb-4">
+              Our Export Process Journey
+            </h2>
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+              Follow the complete journey from farm partnerships to global delivery
+            </p>
+          </div>
+          
+          <div className="space-y-16">
+            {processSteps.map((step, index) => (
+              <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                  <div className="flex items-center mb-6">
+                    <div className="bg-kenyan-green text-white rounded-full p-3 mr-4">
+                      <step.icon className="h-8 w-8" />
+                    </div>
+                    <div>
+                      <Badge variant="outline" className="border-accent-gold text-accent-gold font-bold mb-2">
+                        Step {step.step}
+                      </Badge>
+                      <h3 className="text-2xl font-playfair font-bold text-coffee-brown">{step.title}</h3>
+                    </div>
+                  </div>
+                  
+                  <p className="text-lg text-neutral-600 mb-6">{step.description}</p>
+                  
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-coffee-brown mb-3">Key Activities:</h4>
+                    <ul className="space-y-2">
+                      {step.details.map((detail, detailIndex) => (
+                        <li key={detailIndex} className="flex items-start">
+                          <CheckCircle className="h-4 w-4 text-kenyan-green mt-1 mr-2 flex-shrink-0" />
+                          <span className="text-neutral-600">{detail}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-neutral-50 p-4 rounded-lg">
+                    <span className="text-sm font-semibold text-coffee-brown">Timeline: </span>
+                    <span className="text-sm text-neutral-600">{step.timeframe}</span>
+                  </div>
+                </div>
+                
+                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                  <img 
+                    src={step.image} 
+                    alt={step.title}
+                    className="rounded-lg shadow-xl w-full"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quality Standards */}
+      <section className="py-24 bg-neutral-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-playfair font-bold text-coffee-brown mb-4">
+              Quality Assurance Standards
+            </h2>
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+              Rigorous quality control at every stage ensures consistency and excellence
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {qualityStandards.map((standard, index) => (
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="pt-8 pb-6">
+                  <standard.icon className="h-12 w-12 text-kenyan-green mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold text-coffee-brown mb-3">{standard.title}</h3>
+                  <p className="text-neutral-600 mb-4">{standard.description}</p>
+                  <Badge variant="secondary" className="bg-accent-gold text-charcoal font-bold">
+                    {standard.standard}
+                  </Badge>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Traceability Section */}
+      <section className="py-24 bg-charcoal text-warm-cream">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl font-playfair font-bold text-warm-cream mb-6">
+                Complete Traceability Assurance
+              </h2>
+              <p className="text-lg text-warm-cream/80 mb-8">
+                Every bag of coffee carries a unique lot code that links it back to its origin farm, 
+                processing details, and quality metrics. This ensures complete transparency and 
+                accountability throughout the supply chain.
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <Package className="h-6 w-6 text-accent-gold mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-warm-cream mb-1">Lot Identification</h4>
+                    <p className="text-warm-cream/70">Unique codes for every lot linking to origin farm and processing details</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <FileText className="h-6 w-6 text-accent-gold mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-warm-cream mb-1">Chain of Custody</h4>
+                    <p className="text-warm-cream/70">Documented handling at every stage from farm to export</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <Globe className="h-6 w-6 text-accent-gold mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-warm-cream mb-1">Export Documentation</h4>
+                    <p className="text-warm-cream/70">Complete certificates and permits for international compliance</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <img 
+                src={qualityControl} 
+                alt="Coffee traceability and documentation"
+                className="rounded-lg shadow-2xl"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-accent-gold text-charcoal p-6 rounded-lg shadow-lg">
+                <div className="flex items-center space-x-2 mb-2">
+                  <Shield className="h-5 w-5 text-charcoal" />
+                  <span className="font-bold">100% Traceable</span>
+                </div>
+                <p className="text-sm font-medium">Every bag tracked from farm to port</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom Orders */}
+      <section className="py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <img 
+                src={coffeeDrying} 
+                alt="Custom coffee processing"
+                className="rounded-lg shadow-xl"
+              />
+            </div>
+            
+            <div>
+              <h2 className="text-4xl font-playfair font-bold text-coffee-brown mb-6">
+                Custom Orders & Special Requests
+              </h2>
+              <p className="text-lg text-neutral-600 mb-8">
+                We work closely with roasters to fulfill specific requirements, from processing 
+                methods to packaging and shipping schedules. Our flexibility and expertise 
+                ensure you get exactly what you need for your customers.
+              </p>
+              
+              <div className="space-y-4 mb-8">
+                <h4 className="font-semibold text-coffee-brown">Custom Services Available:</h4>
+                <ul className="space-y-2">
+                  {customServices.map((service, index) => (
+                    <li key={index} className="flex items-start">
+                      <CheckCircle className="h-4 w-4 text-kenyan-green mt-1 mr-2 flex-shrink-0" />
+                      <span className="text-neutral-600">{service}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <Button variant="secondary" size="lg" asChild>
+                <Link to="/request-samples">
+                  Request Custom Sample
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-kenyan-green">
+        <div className="max-w-4xl mx-auto text-center px-6 lg:px-8">
+          <h2 className="text-4xl font-playfair font-bold text-warm-cream mb-6">
+            Experience Our Process Firsthand
+          </h2>
+          <p className="text-xl text-warm-cream/90 mb-8">
+            Ready to see how our meticulous process translates into exceptional coffee? 
+            Request samples and experience the difference quality makes.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" variant="outline" className="border-warm-cream text-warm-cream hover:bg-warm-cream hover:text-kenyan-green" asChild>
+              <Link to="/request-samples">Request Process Samples</Link>
+            </Button>
+            <Button size="lg" variant="secondary" asChild>
+              <Link to="/contact">Discuss Custom Requirements</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
