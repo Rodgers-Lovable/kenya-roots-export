@@ -41,6 +41,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://jowamcoffee.com/sustainability</loc>
+    <lastmod>2024-08-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jowamcoffee.com/insights</loc>
+    <lastmod>2024-08-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://jowamcoffee.com/contact</loc>
     <lastmod>2024-08-22</lastmod>
     <priority>0.8</priority>

@@ -10,6 +10,8 @@ import About from "./pages/About";
 import OurCoffee from "./pages/OurCoffee";
 import Origins from "./pages/Origins";
 import Process from "./pages/Process";
+import Sustainability from "./pages/Sustainability";
+import Insights from "./pages/Insights";
 import Contact from "./pages/Contact";
 import RequestSamples from "./pages/RequestSamples";
 import NotFound from "./pages/NotFound";
@@ -31,6 +33,8 @@ const App = () => (
               <Route path="/our-coffee" element={<OurCoffee />} />
               <Route path="/origins" element={<Origins />} />
               <Route path="/process" element={<Process />} />
+              <Route path="/sustainability" element={<Sustainability />} />
+              <Route path="/insights" element={<Insights />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/request-samples" element={<RequestSamples />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
