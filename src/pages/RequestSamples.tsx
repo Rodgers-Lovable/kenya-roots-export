@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Package, Clock, Coffee, Truck, CheckCircle } from "lucide-react";
+import heroSamples from "@/assets/hero-samples.jpg";
 
 const gradeOptions = [
   { id: "aa", label: "AA (Screen 18+)", description: "Bright acidity, wine-like characteristics" },
@@ -170,8 +171,16 @@ export default function RequestSamples() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-hero text-warm-cream">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <section className="relative py-24 text-warm-cream overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroSamples} 
+            alt="Coffee samples preparation and shipping"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-charcoal/60"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-playfair font-bold mb-6 text-shadow-warm">
             Request Coffee Samples
           </h1>

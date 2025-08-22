@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import coffeeCherry from "@/assets/coffee-cherries.jpg";
 import coffeeDrying from "@/assets/coffee-drying.jpg";
 import qualityControl from "@/assets/quality-control.jpg";
+import heroProcess from "@/assets/hero-process.jpg";
 
 const processSteps = [
   {
@@ -125,8 +126,16 @@ export default function Process() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-hero text-warm-cream">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <section className="relative py-24 text-warm-cream overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroProcess} 
+            alt="Coffee processing from farm to export"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-charcoal/60"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-playfair font-bold mb-6 text-shadow-warm">
             Our Process
             <span className="block text-accent-gold">From Harvest to Export, Handled with Precision</span>

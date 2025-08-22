@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from "lucide-react";
+import heroContact from "@/assets/hero-contact.jpg";
 
 const contactInfo = [
   {
@@ -89,8 +90,16 @@ export default function Contact() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-hero text-warm-cream">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <section className="relative py-24 text-warm-cream overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroContact} 
+            alt="Professional coffee trading office"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-charcoal/60"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-playfair font-bold mb-6 text-shadow-warm">
             Let's Talk Coffee
           </h1>
@@ -339,7 +348,7 @@ export default function Contact() {
             For urgent inquiries or immediate sample requests, contact us directly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="border-warm-cream text-warm-cream hover:bg-warm-cream hover:text-kenyan-green" asChild>
+            <Button size="lg" variant="hero" asChild>
               <a href="mailto:info@jowamcoffee.com">
                 <Mail className="mr-2 h-5 w-5" />
                 Email Us

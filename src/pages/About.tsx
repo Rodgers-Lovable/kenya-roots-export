@@ -81,7 +81,7 @@ export default function About() {
             <span className="block text-accent-gold">Trusted Worldwide.</span>
           </h1>
           <p className="text-xl md:text-2xl text-warm-cream/90 mb-8 max-w-3xl mx-auto">
-            For over a decade, Jowam Coffee Traders has been connecting Kenya's finest coffee 
+            Since 2006, Jowam Coffee Traders has been connecting Kenya's finest coffee 
             with specialty roasters across the globe, building bridges of quality and trust.
           </p>
         </div>
@@ -96,19 +96,25 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-neutral-600 mb-6">
-                Founded in 2010 with a vision to showcase Kenya's exceptional coffee to the world, 
-                Jowam Coffee Traders emerged from a deep passion for our country's coffee heritage 
-                and a commitment to supporting the farmers who make it possible.
+                Jowam Coffee Traders LTD was founded in June 2006 as an exporting company for coffees. 
+                We promote farmers by providing advanced farming technologies to ensure production of 
+                high-quality coffee that is of great value. The company is registered and incorporated 
+                under the Company's Act in the Laws of Kenya and licensed under the Coffee Directorate 
+                Crops Act, 2013 and the Coffee (Forms) Rules, 2002 as a licensed coffee dealer and 
+                exporter in Kenya.
               </p>
               <p className="text-lg text-neutral-600 mb-6">
-                We recognized that Kenya produces some of the world's finest arabica coffee, yet many 
-                farmers struggled to access international markets. Our mission became clear: create 
-                direct, transparent trade relationships that benefit both farmers and roasters.
+                With well over thirty years of experience in the Coffee industry coupled with quality 
+                control, passion and commitment to service, Jowam Coffee Trading Company founders 
+                empower clients by providing coffees that ensure their product sales remain high. 
+                We are determined to be the best coffee dealers and merchants in the region and beyond, 
+                to promote unique coffees to the whole consumer world.
               </p>
               <p className="text-lg text-neutral-600 mb-8">
-                Today, we work with over 50 cooperatives and estates across Kenya's premier coffee 
-                regions, ensuring traceability from farm to cup while maintaining the highest 
-                quality standards that have made Kenyan coffee legendary worldwide.
+                One of our main goals is to promote majority small-scale farmers by marketing their 
+                coffee and thereby creating a steady source of income for them. Today, we work with 
+                over 50 cooperatives and estates across Kenya's premier coffee regions, ensuring 
+                traceability from farm to cup while maintaining the highest quality standards.
               </p>
               <Button variant="secondary" size="lg" asChild>
                 <Link to="/sustainability">
@@ -126,9 +132,10 @@ export default function About() {
                     <h3 className="text-2xl font-playfair font-bold text-coffee-brown">Mission</h3>
                   </div>
                   <p className="text-neutral-600">
-                    To connect Kenya's exceptional coffee farmers with specialty roasters worldwide 
-                    through transparent, ethical trade relationships that ensure quality, 
-                    sustainability, and fair compensation.
+                    Jowam Coffee Trading Limited is committed to transforming the lives and livelihoods 
+                    of coffee farmers, socially and economically by availing to them modern inclusive 
+                    technologies for coffee farming, milling and beans evaluation and ensure production 
+                    of the best quality coffee that will, in turn, generate more income for them.
                   </p>
                 </CardContent>
               </Card>
@@ -140,9 +147,9 @@ export default function About() {
                     <h3 className="text-2xl font-playfair font-bold text-coffee-brown">Vision</h3>
                   </div>
                   <p className="text-neutral-600">
-                    To be the most trusted partner for premium Kenyan green coffee exports, 
-                    known for uncompromising quality, complete traceability, and positive 
-                    impact on farming communities.
+                    To export large volumes of coffee from the region and beyond to international 
+                    markets, sustain quality and help in reviving coffee farming in Kenya and the 
+                    region as a viable business entity.
                   </p>
                 </CardContent>
               </Card>
@@ -282,7 +289,7 @@ export default function About() {
             Let's discuss how we can support your coffee sourcing needs with 
             premium Kenyan green coffee and expert guidance.
           </p>
-          <Button size="lg" variant="outline" className="border-warm-cream text-warm-cream hover:bg-warm-cream hover:text-kenyan-green" asChild>
+          <Button size="lg" variant="hero" asChild>
             <Link to="/contact">Talk to Our Trade Team</Link>
           </Button>
         </div>
