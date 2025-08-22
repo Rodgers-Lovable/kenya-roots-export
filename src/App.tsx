@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import OurCoffee from "./pages/OurCoffee";
 import Origins from "./pages/Origins";
+import OriginDetail from "./pages/OriginDetail";
 import Process from "./pages/Process";
 import Sustainability from "./pages/Sustainability";
 import Insights from "./pages/Insights";
@@ -32,6 +33,7 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/our-coffee" element={<OurCoffee />} />
               <Route path="/origins" element={<Origins />} />
+              <Route path="/origins/:slug" element={<OriginDetail />} />
               <Route path="/process" element={<Process />} />
               <Route path="/sustainability" element={<Sustainability />} />
               <Route path="/insights" element={<Insights />} />
