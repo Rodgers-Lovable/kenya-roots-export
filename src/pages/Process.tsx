@@ -3,115 +3,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Users, Award, Shield, Globe, Coffee, Droplets, Package, FileText, Truck, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import coffeeCherry from "@/assets/coffee-cherries.jpg";
 import coffeeDrying from "@/assets/coffee-drying.jpg";
-import qualityControl from "@/assets/quality-control.jpg";
+import CustomOrders from "@/assets/jowam-bags.jpg";
+import JowamCoffee from "@/assets/jowam-coffee.jpg";
 import heroProcess from "@/assets/hero-process.jpg";
+import { processSteps, qualityStandards } from "@/data/process_and_quality";
 
-const processSteps = [
-  {
-    step: "01",
-    title: "Sourcing & Partnerships",
-    icon: Users,
-    image: coffeeCherry,
-    description: "Building direct relationships with farmers and cooperatives",
-    details: [
-      "Partner with 50+ cooperatives and estates across Kenya",
-      "Direct farmer relationships ensuring fair pricing",
-      "Regular field visits and quality assessments",
-      "Support for sustainable farming practices",
-      "Pre-financing and harvest planning"
-    ],
-    timeframe: "Year-round relationship building"
-  },
-  {
-    step: "02", 
-    title: "Processing & Quality Control",
-    icon: Droplets,
-    image: coffeeDrying,
-    description: "From cherry to green bean with meticulous quality standards",
-    details: [
-      "Washed processing for 85% of our coffees",
-      "Natural and honey processing for specialty lots",
-      "Moisture content monitoring (10-12% target)",
-      "Screen size grading and density sorting",
-      "Professional cupping by licensed Q Graders"
-    ],
-    timeframe: "2-4 weeks post-harvest"
-  },
-  {
-    step: "03",
-    title: "Storage & Lot Preparation", 
-    icon: Package,
-    image: qualityControl,
-    description: "Proper storage and preparation for export",
-    details: [
-      "Climate-controlled warehouse storage",
-      "GrainPro barrier bags for moisture protection",
-      "Jute bag packaging with lot identification",
-      "Final quality control and sample preparation",
-      "Inventory management and lot tracking"
-    ],
-    timeframe: "1-2 weeks preparation"
-  },
-  {
-    step: "04",
-    title: "Export Documentation",
-    icon: FileText,
-    image: qualityControl,
-    description: "Complete certification and export compliance",
-    details: [
-      "Phytosanitary certificates from KEPHIS",
-      "Certificate of Origin from Kenya Coffee Board",
-      "ICO (International Coffee Organization) permits",
-      "Commercial invoices and packing lists",
-      "Bill of lading and shipping instructions"
-    ],
-    timeframe: "3-5 business days"
-  },
-  {
-    step: "05",
-    title: "Logistics & Shipping",
-    icon: Truck,
-    image: coffeeCherry,
-    description: "Reliable shipping from Port of Mombasa worldwide",
-    details: [
-      "Secure transportation to Port of Mombasa",
-      "Container loading and stuffing supervision",
-      "Shipping coordination with global partners",
-      "Real-time tracking and updates",
-      "Insurance coverage for all shipments"
-    ],
-    timeframe: "2-4 weeks transit time"
-  }
-];
-
-const qualityStandards = [
-  {
-    icon: Award,
-    title: "Professional Cupping",
-    description: "Every lot cupped by licensed Q Graders using SCAA protocols",
-    standard: "85+ Cup Score Minimum"
-  },
-  {
-    icon: Droplets,
-    title: "Moisture Content",
-    description: "Precise moisture control for optimal storage and shipping",
-    standard: "10-12% Moisture Range"
-  },
-  {
-    icon: Coffee,
-    title: "Grade Classification",
-    description: "Accurate screen size grading and defect analysis",
-    standard: "AA/AB/PB Standards"
-  },
-  {
-    icon: Shield,
-    title: "Traceability",
-    description: "Complete chain of custody from farm to export",
-    standard: "100% Lot Traceability"
-  }
-];
 
 const customServices = [
   "Custom processing requests (natural, honey, experimental)",
@@ -280,7 +177,7 @@ export default function Process() {
             
             <div className="relative">
               <img 
-                src={qualityControl} 
+                src={JowamCoffee} 
                 alt="Coffee traceability and documentation"
                 className="rounded-lg shadow-2xl"
               />
@@ -302,7 +199,7 @@ export default function Process() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <img 
-                src={coffeeDrying} 
+                src={CustomOrders} 
                 alt="Custom coffee processing"
                 className="rounded-lg shadow-xl"
               />
@@ -352,7 +249,7 @@ export default function Process() {
             Request samples and experience the difference quality makes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="border-warm-cream text-warm-cream hover:bg-warm-cream hover:text-kenyan-green" asChild>
+            <Button size="lg" variant="outline" className="bg-transparent border-warm-cream text-warm-cream hover:bg-warm-cream hover:text-kenyan-green" asChild>
               <Link to="/request-samples">Request Process Samples</Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>

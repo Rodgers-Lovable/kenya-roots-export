@@ -3,9 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Coffee, Droplets, Mountain, Thermometer, Star, Award } from "lucide-react";
 import { Link } from "react-router-dom";
-import qualityControl from "@/assets/quality-control.jpg";
-import coffeeCherry from "@/assets/coffee-cherries.jpg";
-import coffeeDrying from "@/assets/coffee-drying.jpg";
+import aaGradeCoffee from "@/assets/aa-grade-coffee.webp";
+import abGradeCoffee from "@/assets/ab-grade-coffee.webp";
+import pbGradeCoffee from "@/assets/pb-grade-coffee.jpg";
+import qualityControl from "@/assets/coffee-cherries.jpg";
 import heroOurCoffee from "@/assets/hero-our-coffee.jpg";
 
 const grades = [
@@ -20,7 +21,7 @@ const grades = [
       "Ideal for light to medium roasts"
     ],
     cupProfile: "Bright, complex, wine-like with blackcurrant and citrus notes",
-    image: qualityControl
+    image: aaGradeCoffee
   },
   {
     grade: "AB",
@@ -33,7 +34,7 @@ const grades = [
       "Versatile for various roast profiles"
     ],
     cupProfile: "Well-balanced with good body, moderate acidity, and clean finish",
-    image: coffeeCherry
+    image: abGradeCoffee
   },
   {
     grade: "PB",
@@ -46,7 +47,7 @@ const grades = [
       "Prized by roasters for distinctive qualities"
     ],
     cupProfile: "Concentrated, full-bodied with unique flavor intensity",
-    image: coffeeDrying
+    image: pbGradeCoffee
   }
 ];
 
@@ -383,7 +384,7 @@ export default function OurCoffee() {
             choose Jowam Coffee Traders for their Kenyan coffee needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="border-warm-cream text-warm-cream hover:bg-warm-cream hover:text-kenyan-green" asChild>
+            <Button size="lg" variant="outline" className="border-warm-cream bg-transparent text-warm-cream hover:bg-warm-cream hover:text-kenyan-green" asChild>
               <Link to="/request-samples">Request Samples</Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>

@@ -17,6 +17,7 @@ import ArticleDetail from "./pages/ArticleDetail";
 import Contact from "./pages/Contact";
 import RequestSamples from "./pages/RequestSamples";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ui/scroll-to-top";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-1">

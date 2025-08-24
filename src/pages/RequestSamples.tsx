@@ -8,7 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Package, Clock, Coffee, Truck, CheckCircle } from "lucide-react";
-import heroSamples from "@/assets/hero-samples.jpg";
+import heroSamples from "@/assets/jowam-bags-hero.jpg";
 
 const gradeOptions = [
   { id: "aa", label: "AA (Screen 18+)", description: "Bright acidity, wine-like characteristics" },
@@ -22,7 +22,7 @@ const regionOptions = [
   { value: "kisii", label: "Kisii" },
   { value: "bungoma", label: "Bungoma" },
   { value: "muranga", label: "Murang'a" },
-  { value: "embu", label: "Embu" },
+  { value: "meru", label: "Meru" },
   { value: "any", label: "No preference" }
 ];
 
