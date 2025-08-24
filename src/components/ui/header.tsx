@@ -66,57 +66,76 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - Full screen overlay */}
       {mobileMenuOpen && (
         <div className="lg:hidden">
+          {/* Full screen overlay */}
           <div 
-            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm" 
+            className="fixed inset-0 z-50 bg-coffee-brown/95 backdrop-blur-sm animate-fade-in"
             onClick={() => setMobileMenuOpen(false)}
-          />
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-6 py-6 sm:max-w-sm border-l border-border shadow-lg">
-            <div className="flex items-center justify-between">
-              <Link to="/" className="-m-1.5 p-1.5 flex items-center space-x-2">
-                <Coffee className="h-8 w-8 text-coffee-brown" />
-                <span className="font-playfair text-xl font-bold text-coffee-brown">
-                  Jowam Coffee
-                </span>
-              </Link>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-foreground hover:bg-muted"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <X className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-border">
-                <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
+          >
+            {/* Menu container */}
+            <div 
+              className="flex flex-col h-full w-full animate-slide-in-right"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header with close button */}
+              <div className="flex items-center justify-between p-6 border-b border-coffee-cream/20">
+                <Link 
+                  to="/" 
+                  className="flex items-center space-x-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Coffee className="h-8 w-8 text-coffee-cream" />
+                  <span className="font-playfair text-xl font-bold text-coffee-cream">
+                    Jowam Coffee
+                  </span>
+                </Link>
+                <button
+                  type="button"
+                  className="p-2 rounded-md text-coffee-cream hover:bg-coffee-cream/10 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <span className="sr-only">Close menu</span>
+                  <X className="h-8 w-8" aria-hidden="true" />
+                </button>
+              </div>
+
+              {/* Navigation items */}
+              <nav className="flex-1 px-6 py-8">
+                <div className="space-y-4">
+                  {navigation.map((item, index) => (
                     <Link
                       key={item.name}
                       to={item.href}
                       className={cn(
-                        "-mx-3 block rounded-lg px-3 py-2 text-base font-medium transition-colors hover:bg-muted",
+                        "block py-4 px-4 text-lg font-medium rounded-lg transition-all duration-200 animate-fade-in",
                         location.pathname === item.href
-                          ? "text-coffee-brown bg-muted"
-                          : "text-foreground"
+                          ? "text-coffee-brown bg-coffee-cream shadow-lg"
+                          : "text-coffee-cream hover:bg-coffee-cream/10 hover:translate-x-2"
                       )}
+                      style={{ animationDelay: `${index * 50}ms` }}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
                     </Link>
                   ))}
                 </div>
-                <div className="py-6">
-                  <Button variant="default" className="w-full" asChild>
+
+                {/* CTA Button */}
+                <div className="mt-8 pt-8 border-t border-coffee-cream/20">
+                  <Button 
+                    variant="default" 
+                    size="lg" 
+                    className="w-full bg-coffee-cream text-coffee-brown hover:bg-coffee-cream/90 font-medium text-lg py-4"
+                    asChild
+                  >
                     <Link to="/request-samples" onClick={() => setMobileMenuOpen(false)}>
                       Request Samples
                     </Link>
                   </Button>
                 </div>
-              </div>
+              </nav>
             </div>
           </div>
         </div>
