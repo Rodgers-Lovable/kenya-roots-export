@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
-import { Coffee, Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Logo from "@/assets/logo.png";
 
 const navigation = {
   main: [
@@ -39,14 +47,20 @@ export function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <Link to="/" className="flex items-center space-x-2">
-              <Coffee className="h-8 w-8 text-accent-gold" />
+              <img
+                height={5}
+                width={40}
+                src={Logo}
+                alt="Jowam coffee traders"
+              />
               <span className="font-playfair text-xl font-bold text-warm-cream">
                 Jowam Coffee Traders
               </span>
             </Link>
             <p className="text-sm leading-6 text-neutral-300">
-              Premium Kenyan green coffee exporters connecting specialty roasters 
-              worldwide with the finest arabica coffee from Kenya's premier growing regions.
+              Premium Kenyan green coffee exporters connecting specialty
+              roasters worldwide with the finest arabica coffee from Kenya's
+              premier growing regions.
             </p>
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-sm text-neutral-300">
@@ -75,16 +89,18 @@ export function Footer() {
               ))}
             </div>
           </div>
-          
+
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-accent-gold">Company</h3>
+                <h3 className="text-sm font-semibold leading-6 text-accent-gold">
+                  Company
+                </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.main.map((item) => (
                     <li key={item.name}>
-                      <Link 
-                        to={item.href} 
+                      <Link
+                        to={item.href}
                         className="text-sm leading-6 text-neutral-300 hover:text-warm-cream transition-colors"
                       >
                         {item.name}
@@ -94,12 +110,14 @@ export function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-accent-gold">Resources</h3>
+                <h3 className="text-sm font-semibold leading-6 text-accent-gold">
+                  Resources
+                </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.resources.map((item) => (
                     <li key={item.name}>
-                      <Link 
-                        to={item.href} 
+                      <Link
+                        to={item.href}
                         className="text-sm leading-6 text-neutral-300 hover:text-warm-cream transition-colors"
                       >
                         {item.name}
@@ -109,12 +127,15 @@ export function Footer() {
                 </ul>
               </div>
             </div>
-            
+
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-accent-gold">Newsletter</h3>
+                <h3 className="text-sm font-semibold leading-6 text-accent-gold">
+                  Newsletter
+                </h3>
                 <p className="mt-2 text-sm leading-6 text-neutral-300">
-                  Stay updated on harvest seasons, new lots, and market insights.
+                  Stay updated on harvest seasons, new lots, and market
+                  insights.
                 </p>
                 <form className="mt-6 sm:flex sm:max-w-md">
                   <label htmlFor="email-address" className="sr-only">
@@ -137,12 +158,14 @@ export function Footer() {
                 </form>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-accent-gold">Legal</h3>
+                <h3 className="text-sm font-semibold leading-6 text-accent-gold">
+                  Legal
+                </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <Link 
-                        to={item.href} 
+                      <Link
+                        to={item.href}
                         className="text-sm leading-6 text-neutral-300 hover:text-warm-cream transition-colors"
                       >
                         {item.name}
@@ -154,10 +177,11 @@ export function Footer() {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-16 border-t border-neutral-700 pt-8 sm:mt-20 lg:mt-24">
           <p className="text-xs leading-5 text-neutral-400">
-            &copy; {new Date().getFullYear()} Jowam Coffee Traders LTD. All rights reserved. Licensed green coffee exporter from Kenya.
+            &copy; {new Date().getFullYear()} Jowam Coffee Traders LTD. All
+            rights reserved. Licensed green coffee exporter from Kenya.
           </p>
         </div>
       </div>

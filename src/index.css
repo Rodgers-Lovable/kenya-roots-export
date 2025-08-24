@@ -1,20 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Jowam Coffee Traders Design System - All colors MUST be HSL */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
     /* Jowam Coffee Brand Colors */
-    --coffee-brown: 16 51% 24%;    /* #4E342E - Primary */
-    --kenyan-green: 84 51% 36%;    /* #558B2F - Secondary */
-    --warm-cream: 60 56% 91%;      /* #F5F5DC - Base */
-    --accent-gold: 51 65% 52%;     /* #D4AF37 - Accent */
-    --charcoal: 0 0% 11%;          /* #1B1B1B - Dark */
-    
+    --coffee-brown: 16 51% 24%; /* #4E342E - Primary */
+    --kenyan-green: 84 51% 36%; /* #558B2F - Secondary */
+    --warm-cream: 60 56% 91%; /* #F5F5DC - Base */
+    --accent-gold: 51 65% 52%; /* #D4AF37 - Accent */
+    --charcoal: 0 0% 11%; /* #1B1B1B - Dark */
+
     /* Neutral Scale */
     --neutral-50: 60 9% 98%;
     --neutral-100: 60 5% 96%;
@@ -103,7 +103,7 @@
     --border: var(--neutral-700);
     --input: var(--neutral-700);
     --ring: var(--accent-gold);
-    
+
     --sidebar-background: var(--neutral-900);
     --sidebar-foreground: var(--warm-cream);
     --sidebar-primary: var(--coffee-brown);
@@ -116,15 +116,27 @@
 
   /* Coffee Brand Specific Gradients */
   .gradient-hero {
-    background: linear-gradient(135deg, hsl(var(--coffee-brown) / 0.95), hsl(var(--charcoal) / 0.8));
+    background: linear-gradient(
+      135deg,
+      hsl(var(--coffee-brown) / 0.95),
+      hsl(var(--charcoal) / 0.8)
+    );
   }
-  
+
   .gradient-coffee {
-    background: linear-gradient(180deg, hsl(var(--coffee-brown)), hsl(var(--coffee-brown) / 0.8));
+    background: linear-gradient(
+      180deg,
+      hsl(var(--coffee-brown)),
+      hsl(var(--coffee-brown) / 0.8)
+    );
   }
-  
+
   .gradient-kenyan {
-    background: linear-gradient(45deg, hsl(var(--kenyan-green)), hsl(var(--kenyan-green) / 0.7));
+    background: linear-gradient(
+      45deg,
+      hsl(var(--kenyan-green)),
+      hsl(var(--kenyan-green) / 0.7)
+    );
   }
 
   .text-shadow-warm {
@@ -152,7 +164,8 @@
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -170,16 +183,21 @@
     @apply bg-background text-foreground font-inter;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-playfair text-primary;
   }
 
   .font-playfair {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
   }
 
   .font-inter {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   /* Smooth scrolling */
