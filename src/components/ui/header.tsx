@@ -71,7 +71,7 @@ export function Header() {
         <div className="lg:hidden">
           {/* Full screen overlay */}
           <div 
-            className="fixed inset-0 z-50 bg-coffee-brown/95 backdrop-blur-sm animate-fade-in"
+            className="fixed inset-0 z-50 bg-coffee-brown/90 backdrop-blur-sm animate-fade-in"
             onClick={() => setMobileMenuOpen(false)}
           >
             {/* Menu container */}
@@ -80,20 +80,20 @@ export function Header() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header with close button */}
-              <div className="flex items-center justify-between p-6 border-b border-coffee-cream/20">
+              <div className="flex items-center justify-between p-6 border-b border-warm-cream/20">
                 <Link 
                   to="/" 
                   className="flex items-center space-x-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Coffee className="h-8 w-8 text-coffee-cream" />
-                  <span className="font-playfair text-xl font-bold text-coffee-cream">
+                  <Coffee className="h-8 w-8 text-warm-cream" />
+                  <span className="font-playfair text-xl font-bold text-warm-cream">
                     Jowam Coffee
                   </span>
                 </Link>
                 <button
                   type="button"
-                  className="p-2 rounded-md text-coffee-cream hover:bg-coffee-cream/10 transition-colors"
+                  className="p-2 rounded-md text-warm-cream hover:bg-warm-cream/10 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -111,8 +111,8 @@ export function Header() {
                       className={cn(
                         "block py-4 px-4 text-lg font-medium rounded-lg transition-all duration-200 animate-fade-in",
                         location.pathname === item.href
-                          ? "text-coffee-brown bg-coffee-cream shadow-lg"
-                          : "text-coffee-cream hover:bg-coffee-cream/10 hover:translate-x-2"
+                          ? "text-coffee-brown bg-warm-cream shadow-lg"
+                          : "text-warm-cream hover:bg-warm-cream/10 hover:translate-x-2"
                       )}
                       style={{ animationDelay: `${index * 50}ms` }}
                       onClick={() => setMobileMenuOpen(false)}
@@ -123,11 +123,11 @@ export function Header() {
                 </div>
 
                 {/* CTA Button */}
-                <div className="mt-8 pt-8 border-t border-coffee-cream/20">
+                <div className="mt-8 pt-8 border-t border-warm-cream/20">
                   <Button 
                     variant="default" 
                     size="lg" 
-                    className="w-full bg-coffee-cream text-coffee-brown hover:bg-coffee-cream/90 font-medium text-lg py-4"
+                    className="w-full bg-warm-cream text-coffee-brown hover:bg-warm-cream/90 font-medium text-lg py-4"
                     asChild
                   >
                     <Link to="/request-samples" onClick={() => setMobileMenuOpen(false)}>
