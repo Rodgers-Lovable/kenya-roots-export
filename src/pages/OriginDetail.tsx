@@ -12,10 +12,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useEffect } from "react";
-import heroImage from "@/assets/hero-kenya-coffee.jpg";
-import coffeeCherry from "@/assets/coffee-cherries.jpg";
-import coffeeDrying from "@/assets/coffee-drying.jpg";
-import qualityControl from "@/assets/quality-control.jpg"; 
 import { regions } from "@/data/origins";
 
 
@@ -69,7 +65,7 @@ export default function OriginDetail() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-hero text-warm-cream overflow-hidden">
+      <section className="relative py-32 gradient-hero text-warm-cream overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
           style={{ backgroundImage: `url(${region.image})` }}
@@ -88,7 +84,7 @@ export default function OriginDetail() {
 
           <div className="max-w-4xl">
             <div className="flex items-center gap-4 mb-6">
-              <h1 className="text-5xl md:text-6xl font-playfair font-bold text-shadow-warm">
+              <h1 className="text-5xl md:text-6xl font-playfair font-bold text-accent-gold">
                 {region.name}
               </h1>
               {region.featured && (
