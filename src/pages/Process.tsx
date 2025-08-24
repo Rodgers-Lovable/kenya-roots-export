@@ -33,7 +33,7 @@ export default function Process() {
           <div className="absolute inset-0 bg-charcoal/60"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-playfair font-bold mb-6 text-shadow-warm">
+          <h1 className="text-5xl md:text-6xl font-playfair font-bold mb-6 text-warm-cream">
             Our Process
             <span className="block text-accent-gold">From Harvest to Export, Handled with Precision</span>
           </h1>
