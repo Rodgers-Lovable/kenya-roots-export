@@ -17,7 +17,6 @@ export const navigation = {
   resources: [
     { name: "Request Samples", href: "/request-samples" },
     { name: "Download Catalog", href: "/catalog" },
-    { name: "Licenses & Memberships", href: "/licenses" },
     { name: "FAQs", href: "/faqs" },
   ],
   legal: [

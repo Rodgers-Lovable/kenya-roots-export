@@ -1,4 +1,5 @@
 export const COMPANY_NAME = "Jowam Coffee Traders LTD.";
+export const COMPANY_WEBSITE = "https://jowamcoffee.co.ke";
 
 export const COMPANY_PRIMARY_TEL = "+254 (0) 722 762 945";
 export const COMPANY_SECONDARY_TEL = "+254 (0) 728 919 092";
