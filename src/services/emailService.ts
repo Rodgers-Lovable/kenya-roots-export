@@ -70,6 +70,7 @@ export const sendContactEmail = async (
       from_phone: formData.phone || "Not provided",
       subject: formData.subject,
       message: formData.message,
+      form_type: "General Request",
       to_email: "trading@jowamcoffee.com",
     };
 
@@ -120,6 +121,7 @@ export const sendSampleRequestEmail = async (
       marketing_consent: formData.marketingConsent ? "Yes" : "No",
       follow_up_consent: formData.followUpConsent ? "Yes" : "No",
 
+      form_type: "Sample Request",
       to_email: "trading@jowamcoffee.com",
     };
 
