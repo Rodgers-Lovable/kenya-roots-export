@@ -476,7 +476,7 @@ export default function Contact() {
                       <div className="flex items-start space-x-4">
                         <Mail className="h-6 w-6 text-kenyan-green mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibent text-coffee-brown mb-2">
+                          <h3 className="font-semibold text-coffee-brown mb-2">
                             Partnership Opportunities
                           </h3>
                           <p className="text-neutral-600 text-sm">
