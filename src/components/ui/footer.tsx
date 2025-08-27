@@ -7,6 +7,8 @@ import {
   COMPANY_NAME,
   COMPANY_PRIMARY_EMAIL,
   COMPANY_PRIMARY_TEL,
+  DEVELOPER_NAME,
+  DEVELOPER_WEBSITE,
 } from "@/core/constants";
 import { navigation } from "@/data/menu_items";
 
@@ -133,10 +135,15 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-neutral-700 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-xs leading-5 text-neutral-400">
+        <div className="mt-16 border-t border-neutral-700 pt-8 sm:mt-20 lg:mt-24 text-xs leading-5 text-neutral-400 text-center lg:flex justify-between">
+          <p>
             &copy; {new Date().getFullYear()} Jowam Coffee Traders LTD. All
             rights reserved. Licensed green coffee exporter from Kenya.
+          </p>
+
+          <p>
+            Developed and Maintained by{" "}
+            <a href={DEVELOPER_WEBSITE} className="text-accent-gold">{DEVELOPER_NAME}</a>
           </p>
         </div>
       </div>

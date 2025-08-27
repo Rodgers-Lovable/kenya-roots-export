@@ -16,25 +16,26 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from "lucide-react";
 import heroContact from "@/assets/hero-contact.jpg";
 import { sendContactEmail, isEmailJSConfigured, type ContactFormData } from "@/services/emailService";
 import { EmailJSConfigAlert } from "@/components/ui/EmailJSConfig";
+import { COMPANY_ADDRESS, COMPANY_LOCATION, COMPANY_PRIMARY_EMAIL, COMPANY_PRIMARY_TEL, COMPANY_SECONDARY_EMAIL, COMPANY_SECONDARY_TEL } from "@/core/constants";
 
 const contactInfo = [
   {
     icon: MapPin,
     title: "Physical Address",
-    details: ["Nairobi, Kenya", "Pension Towers, 4th Flr. Loita Str"],
-    primary: "Nairobi, Kenya",
+    details: [COMPANY_LOCATION, COMPANY_ADDRESS],
+    primary: COMPANY_LOCATION,
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["trading@jowamcoffee.com", "operation@jowamcoffee.com"],
-    primary: "trading@jowamcoffee.com",
+    details: [COMPANY_PRIMARY_EMAIL, COMPANY_SECONDARY_EMAIL],
+    primary: COMPANY_PRIMARY_EMAIL,
   },
   {
     icon: Phone,
     title: "Phone",
-    details: ["+254 (0) 722 762 945", "+254 (0) 728 919 092"],
-    primary: "+254 (0) 722 762 945",
+    details: [COMPANY_PRIMARY_TEL, COMPANY_SECONDARY_TEL],
+    primary: COMPANY_PRIMARY_TEL,
   },
   {
     icon: Clock,
@@ -423,13 +424,14 @@ export default function Contact() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="hero" asChild>
-              <a href="mailto:info@jowamcoffee.com">
+              <a href={`mailto:${COMPANY_PRIMARY_EMAIL}`}>
                 <Mail className="mr-2 h-5 w-5" />
                 Email Us
               </a>
             </Button>
+            
             <Button size="lg" variant="secondary" asChild>
-              <a href="tel:+254123456789">
+              <a href={`tel:${COMPANY_PRIMARY_TEL}`}>
                 <Phone className="mr-2 h-5 w-5" />
                 Call Now
               </a>
