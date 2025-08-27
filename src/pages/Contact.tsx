@@ -54,6 +54,7 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
