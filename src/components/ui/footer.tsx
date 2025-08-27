@@ -143,7 +143,7 @@ export function Footer() {
 
           <p>
             Developed and Maintained by{" "}
-            <a href={DEVELOPER_WEBSITE} className="text-accent-gold">{DEVELOPER_NAME}</a>
+            <a target="_blank" href={DEVELOPER_WEBSITE} className="text-accent-gold">{DEVELOPER_NAME}</a>
           </p>
         </div>
       </div>
