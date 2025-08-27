@@ -58,7 +58,7 @@ const NotFound = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="border-warm-cream text-warm-cream hover:bg-warm-cream hover:text-kenyan-green" asChild>
+            <Button size="lg" variant="outline" className="text-kenyan-green" asChild>
               <Link to="/">
                 <Home className="mr-2 h-5 w-5" />
                 Return to Origin
