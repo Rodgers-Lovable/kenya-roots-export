@@ -1,42 +1,14 @@
 import { Link } from "react-router-dom";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Facebook,
-  Instagram,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Mail, Phone, MapPin } from "lucide-react";
 import Logo from "@/assets/logo.png";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
-
-const navigation = {
-  main: [
-    { name: "About Us", href: "/about" },
-    { name: "Our Coffee", href: "/our-coffee" },
-    { name: "Origins", href: "/origins" },
-    { name: "Process", href: "/process" },
-    { name: "Sustainability", href: "/sustainability" },
-    { name: "Contact", href: "/contact" },
-  ],
-  resources: [
-    { name: "Request Samples", href: "/request-samples" },
-    { name: "Download Catalog", href: "/catalog" },
-    { name: "Licenses & Memberships", href: "/licenses" },
-    { name: "FAQs", href: "/faqs" },
-  ],
-  legal: [
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
-  ],
-  social: [
-    { name: "LinkedIn", href: "#", icon: Linkedin },
-    { name: "Facebook", href: "#", icon: Facebook },
-    { name: "Instagram", href: "#", icon: Instagram },
-  ],
-};
+import {
+  COMPANY_LOCATION,
+  COMPANY_NAME,
+  COMPANY_PRIMARY_EMAIL,
+  COMPANY_PRIMARY_TEL,
+} from "@/core/constants";
+import { navigation } from "@/data/menu_items";
 
 export function Footer() {
   return (
@@ -55,7 +27,7 @@ export function Footer() {
                 alt="Jowam coffee traders"
               />
               <span className="font-playfair text-xl font-bold text-warm-cream">
-                Jowam Coffee Traders
+                {COMPANY_NAME}
               </span>
             </Link>
             <p className="text-sm leading-6 text-neutral-300">
@@ -66,15 +38,15 @@ export function Footer() {
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-sm text-neutral-300">
                 <MapPin className="h-4 w-4 text-accent-gold" />
-                <span>Nairobi, Kenya</span>
+                <span>{COMPANY_LOCATION}</span>
               </div>
               <div className="flex items-center space-x-2 text-sm text-neutral-300">
                 <Mail className="h-4 w-4 text-accent-gold" />
-                <span>info@jowamcoffee.com</span>
+                <span>{COMPANY_PRIMARY_EMAIL}</span>
               </div>
               <div className="flex items-center space-x-2 text-sm text-neutral-300">
                 <Phone className="h-4 w-4 text-accent-gold" />
-                <span>+254 (0) 123 456 789</span>
+                <span>{COMPANY_PRIMARY_TEL}</span>
               </div>
             </div>
             <div className="flex space-x-6">

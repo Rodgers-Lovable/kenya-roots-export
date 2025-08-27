@@ -4,17 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Coffee } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Logo from "@/assets/logo.png";
+import { COMPANY_NAME } from "@/core/constants";
+import { navigation } from "@/data/menu_items";
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Our Coffee", href: "/our-coffee" },
-  { name: "Origins", href: "/origins" },
-  { name: "Process", href: "/process" },
-  { name: "Sustainability", href: "/sustainability" },
-  { name: "Insights", href: "/insights" },
-  { name: "Contact", href: "/contact" },
-];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,7 +22,7 @@ export function Header() {
           <Link to="/" className="-m-1.5 p-1.5 flex items-center space-x-2">
             <img height={5} width={40} src={Logo} alt="Jowam coffee traders" />
             <span className="font-playfair text-xl font-bold text-coffee-brown">
-              Jowam Coffee Traders
+              { COMPANY_NAME }
             </span>
           </Link>
         </div>
@@ -47,7 +39,7 @@ export function Header() {
         </div>
 
         <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item) => (
+          {navigation.main.map((item) => (
             <Link
               key={item.name}
               to={item.href}
@@ -113,7 +105,7 @@ export function Header() {
               {/* Navigation items */}
               <nav className="flex-1 px-6 py-8 bg-coffee-brown backdrop-blur-sm">
                 <div className="space-y-4">
-                  {navigation.map((item, index) => (
+                  {navigation.main.map((item, index) => (
                     <Link
                       key={item.name}
                       to={item.href}
