@@ -16,7 +16,6 @@ import coffeeCherry from "@/assets/coffee-cherries.jpg";
 import coffeeDrying from "@/assets/coffee-drying.jpg";
 import qualityControl from "@/assets/quality-control.jpg";
 import { regions } from "@/data/origins";
-import MyLeafletMap from "@/components/ui/my-leaflet-map";
 
 const whyOriginMatters = [
   {
@@ -120,7 +119,13 @@ export default function Origins() {
           </div>
 
           <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-            <MyLeafletMap />
+            <div className="h-[500px] bg-neutral-100 rounded-lg flex items-center justify-center">
+              <div className="text-center">
+                <Mountain className="h-16 w-16 text-kenyan-green mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-coffee-brown mb-2">Interactive Map Coming Soon</h3>
+                <p className="text-neutral-600">Explore Kenya's coffee regions in detail</p>
+              </div>
+            </div>
             <Button variant="outline" className="mt-10" asChild>
               <Link to="#featured-regions">View Region Details</Link>
             </Button>

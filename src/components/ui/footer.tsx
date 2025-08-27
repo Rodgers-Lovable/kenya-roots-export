@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Logo from "@/assets/logo.png";
+import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 const navigation = {
   main: [
@@ -137,25 +138,7 @@ export function Footer() {
                   Stay updated on harvest seasons, new lots, and market
                   insights.
                 </p>
-                <form className="mt-6 sm:flex sm:max-w-md">
-                  <label htmlFor="email-address" className="sr-only">
-                    Email address
-                  </label>
-                  <Input
-                    type="email"
-                    name="email-address"
-                    id="email-address"
-                    autoComplete="email"
-                    required
-                    className="w-full min-w-0 appearance-none bg-charcoal/50 border-neutral-600 text-warm-cream placeholder:text-neutral-400"
-                    placeholder="Enter your email"
-                  />
-                  <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
-                    <Button variant="secondary" type="submit">
-                      Subscribe
-                    </Button>
-                  </div>
-                </form>
+                <NewsletterForm variant="footer" />
               </div>
               <div className="mt-10 md:mt-0">
                 <h3 className="text-sm font-semibold leading-6 text-accent-gold">

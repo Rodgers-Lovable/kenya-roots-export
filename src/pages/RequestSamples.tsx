@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { Send, Package, Clock, Coffee, Truck, CheckCircle } from "lucide-react";
 import heroSamples from "@/assets/jowam-bags-hero.jpg";
+import { sendSampleRequestEmail, isEmailJSConfigured, type SampleRequestData } from "@/services/emailService";
+import { EmailJSConfigAlert } from "@/components/ui/EmailJSConfig";
 
 const gradeOptions = [
   { id: "aa", label: "AA (Screen 18+)", description: "Bright acidity, wine-like characteristics" },
@@ -127,7 +129,39 @@ export default function RequestSamples() {
     setIsSubmitting(true);
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      if (!isEmailJSConfigured()) {
+        toast({
+          title: "Email service not configured",
+          description: "Please contact us directly via email at trading@jowamcoffee.com",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const sampleRequestData: SampleRequestData = {
+        name: formData.name,
+        company: formData.company,
+        email: formData.email,
+        phone: formData.phone,
+        website: formData.website,
+        country: formData.country,
+        city: formData.city,
+        businessType: formData.businessType,
+        desiredGrades: formData.desiredGrades,
+        preferredRegion: formData.preferredRegion,
+        processMethod: formData.processMethod,
+        targetRoastProfile: formData.targetRoastProfile,
+        quantityInterest: formData.quantityInterest,
+        currentSuppliers: formData.currentSuppliers,
+        volumeRequirements: formData.volumeRequirements,
+        timeline: formData.timeline,
+        specificRequests: formData.specificRequests,
+        hearAboutUs: formData.hearAboutUs,
+        marketingConsent: formData.marketingConsent,
+        followUpConsent: formData.followUpConsent,
+      };
+
+      await sendSampleRequestEmail(sampleRequestData);
       
       toast({
         title: "Sample request submitted successfully!",
@@ -160,7 +194,7 @@ export default function RequestSamples() {
     } catch (error) {
       toast({
         title: "Error submitting request",
-        description: "Please try again or contact us directly.",
+        description: error instanceof Error ? error.message : "Please try again or contact us directly.",
         variant: "destructive"
       });
     } finally {
@@ -229,6 +263,8 @@ export default function RequestSamples() {
             </p>
           </div>
 
+          <EmailJSConfigAlert />
+          
           <form onSubmit={handleSubmit} className="space-y-12">
             {/* Contact Information */}
             <Card>

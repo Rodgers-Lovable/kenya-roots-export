@@ -14,6 +14,8 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from "lucide-react";
 import heroContact from "@/assets/hero-contact.jpg";
+import { sendContactEmail, isEmailJSConfigured, type ContactFormData } from "@/services/emailService";
+import { EmailJSConfigAlert } from "@/components/ui/EmailJSConfig";
 
 const contactInfo = [
   {
@@ -63,9 +65,27 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      if (!isEmailJSConfigured()) {
+        toast({
+          title: "Email service not configured",
+          description: "Please contact us directly via email at trading@jowamcoffee.com",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const contactData: ContactFormData = {
+        name: formData.name,
+        company: formData.company,
+        email: formData.email,
+        country: formData.country,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+      };
+
+      await sendContactEmail(contactData);
 
       toast({
         title: "Message sent successfully!",
@@ -85,7 +105,7 @@ export default function Contact() {
     } catch (error) {
       toast({
         title: "Error sending message",
-        description: "Please try again or contact us directly via email.",
+        description: error instanceof Error ? error.message : "Please try again or contact us directly via email.",
         variant: "destructive",
       });
     } finally {
@@ -160,6 +180,8 @@ export default function Contact() {
                 </p>
               </div>
 
+              <EmailJSConfigAlert />
+              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>

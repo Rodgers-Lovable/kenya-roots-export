@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Skeleton } from "@/components/ui/skeleton"
 import { supabase } from "@/integrations/supabase/client"
+import { NewsletterForm } from "@/components/forms/NewsletterForm"
 
 interface Article {
   id: string
@@ -293,10 +294,7 @@ export default function Insights() {
             <p className="text-muted-foreground mb-8">
               Subscribe to our newsletter and never miss the latest insights from Kenya's coffee industry
             </p>
-            <div className="flex gap-4 max-w-md mx-auto">
-              <Input placeholder="Your email address" type="email" className="flex-1" />
-              <Button>Subscribe</Button>
-            </div>
+            <NewsletterForm variant="page" />
             <p className="text-sm text-muted-foreground mt-4">
               We respect your privacy. Unsubscribe at any time.
             </p>
