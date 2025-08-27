@@ -70,17 +70,17 @@ const licenses = [
 
 const team = [
   {
-    name: "James Waweru",
-    role: "Managing Director",
+    name: "Josphat Mwirigi",
+    role: "Founder & C.E.O",
     bio: "20+ years in coffee trading with deep expertise in Kenyan coffee markets and international export regulations.",
   },
   {
-    name: "Sarah Muthoni",
+    name: "Kelvin Bundi",
     role: "Quality Control Manager",
     bio: "Licensed Q Grader with extensive experience in coffee cupping and quality assessment across East African origins.",
   },
   {
-    name: "David Kimani",
+    name: "Nelius Mureithi",
     role: "Logistics Coordinator",
     bio: "Specializes in international shipping and export documentation with focus on timely and secure delivery.",
   },
