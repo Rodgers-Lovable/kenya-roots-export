@@ -18,40 +18,56 @@ import Contact from "./pages/Contact";
 import RequestSamples from "./pages/RequestSamples";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ui/scroll-to-top";
+import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/our-coffee" element={<OurCoffee />} />
-              <Route path="/origins" element={<Origins />} />
-              <Route path="/origins/:slug" element={<OriginDetail />} />
-            <Route path="/process" element={<Process />} />
-            <Route path="/sustainability" element={<Sustainability />} />
-            <Route path="/insights" element={<Insights />} />
-            <Route path="/insights/:slug" element={<ArticleDetail />} />
-            <Route path="/contact" element={<Contact />} />
-              <Route path="/request-samples" element={<RequestSamples />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+function usePlausible(domain: string) {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.setAttribute("defer", "");
+    script.setAttribute("data-domain", domain);
+    script.src = "https://plausible.io/js/script.js";
+
+    document.head.appendChild(script);
+  }, [domain]);
+}
+
+const App = () => {
+  usePlausible("jowamcoffee.co.ke");
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/our-coffee" element={<OurCoffee />} />
+                <Route path="/origins" element={<Origins />} />
+                <Route path="/origins/:slug" element={<OriginDetail />} />
+                <Route path="/process" element={<Process />} />
+                <Route path="/sustainability" element={<Sustainability />} />
+                <Route path="/insights" element={<Insights />} />
+                <Route path="/insights/:slug" element={<ArticleDetail />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/request-samples" element={<RequestSamples />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
