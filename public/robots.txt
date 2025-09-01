@@ -4,7 +4,7 @@ Disallow: /admin/
 Disallow: /private/
 
 # Sitemap
-Sitemap: https://jowamcoffee.com/sitemap.xml
+Sitemap: https://jowamcoffee.co.ke/sitemap.xml
 
 # Specific crawlers
 User-agent: Googlebot

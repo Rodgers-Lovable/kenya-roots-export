@@ -23,33 +23,14 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ui/scroll-to-top";
 import { useEffect } from "react";
+import { useGoogleAnalytics } from "./hooks/use-google-verification";
+import { usePlausible } from "./hooks/use-plausible-script";
 
 const queryClient = new QueryClient();
 
-function usePlausible(domain: string) {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.setAttribute("defer", "");
-    script.setAttribute("data-domain", domain);
-    script.src = "https://plausible.io/js/script.js";
-
-    document.head.appendChild(script);
-  }, [domain]);
-}
-
-function useGoogleAnalytics() {
-  useEffect(() => {
-    const meta = document.createElement("meta");
-    meta.setAttribute("name", "google-site-verification");
-    meta.setAttribute("content", "dC0Tm4sXGBYVb3ThHpouwmB2t3AfRFq-TgQgA6Nn6eE");
-
-    document.head.appendChild(meta);
-  }, []);
-}
-
 const App = () => {
-  usePlausible("jowamcoffee.co.ke");
   useGoogleAnalytics();
+  usePlausible("jowamcoffee.co.ke");
 
   return (
     <QueryClientProvider client={queryClient}>
