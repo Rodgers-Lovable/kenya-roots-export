@@ -11,6 +11,7 @@ import { Search, Filter, Download, Star, MapPin, Calendar, Coffee } from 'lucide
 import heroImage from "@/assets/jowam-bags-hero.jpg"
 import coffeeBeansImage from "@/assets/coffee-bags.jpeg"
 import cupping from "@/assets/cupping.jpeg"
+import { PageSpecificFAQ } from "@/components/FAQ/PageSpecificFAQ"
 
 interface CatalogItem {
   id: string
@@ -488,6 +489,9 @@ export default function Catalog() {
           </div>
         </div>
       </section>
+
+      {/* Page-specific FAQ */}
+      <PageSpecificFAQ categories={["products", "ordering"]} />
     </div>
   )
 }

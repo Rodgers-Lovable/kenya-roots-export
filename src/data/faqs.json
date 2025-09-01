@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "category": "general",
+    "question": "Who is Jowam Coffee Traders LTD?",
+    "answer": "Jowam Coffee Traders LTD is a Kenyan company specializing in sourcing, processing, and exporting premium green coffee beans directly from farmers, cooperatives, and estates across Kenya. We connect global buyers with authentic Kenyan coffee at its source."
+  },
+  {
+    "id": 2,
+    "category": "general",
+    "question": "Why choose Kenyan coffee from Jowam Coffee Traders?",
+    "answer": "Kenyan coffee is globally recognized for its bright acidity, wine-like notes, and complex flavors. At Jowam Coffee Traders, we ensure traceability, direct farmer relationships, and consistent quality, making us a trusted partner for roasters and distributors worldwide."
+  },
+  {
+    "id": 3,
+    "category": "products",
+    "question": "What types of Kenyan coffee do you export?",
+    "answer": "We export a wide range of green coffee beans including Kenya AA, AB, PB (peaberry), and specialty microlots. Each lot is carefully graded and sourced from top coffee-growing regions such as Nyeri, Kirinyaga, Embu, Murang'a, and Kisii."
+  },
+  {
+    "id": 4,
+    "category": "products",
+    "question": "Do you offer single-origin Kenyan coffee?",
+    "answer": "Yes, Jowam Coffee Traders provides single-origin coffees sourced from distinct regions and estates across Kenya, allowing roasters to experience the unique flavor profiles that each terroir offers."
+  },
+  {
+    "id": 5,
+    "category": "sourcing",
+    "question": "Where do you source your Kenyan coffee?",
+    "answer": "We source coffee directly from smallholder farmers, farmer cooperatives, and private estates in regions such as Nyeri, Kirinyaga, Kiambu, Embu, Machakos, and Kisii, ensuring transparency and sustainability in every lot we export."
+  },
+  {
+    "id": 6,
+    "category": "ordering",
+    "question": "How can I buy green coffee from Jowam Coffee Traders?",
+    "answer": "You can contact us directly via our website inquiry form or email. Once we receive your request, we will provide a catalog of available lots, samples if required, and assist with the ordering process for international buyers."
+  },
+  {
+    "id": 7,
+    "category": "ordering",
+    "question": "Do you provide coffee samples before purchase?",
+    "answer": "Yes, we provide green coffee samples upon request so that buyers and roasters can cup and evaluate the quality before making bulk orders."
+  },
+  {
+    "id": 8,
+    "category": "shipping",
+    "question": "Do you ship Kenyan coffee internationally?",
+    "answer": "Yes, we export worldwide through Mombasa Port using both sea and air freight options. We work with trusted logistics partners to ensure safe and timely delivery of green coffee to roasters and importers globally."
+  },
+  {
+    "id": 9,
+    "category": "shipping",
+    "question": "What is the minimum order quantity for export?",
+    "answer": "Our standard minimum order is one full bag (60kg), though larger commercial buyers typically order multiple bags or full container loads. We can also accommodate microlot shipments for specialty roasters."
+  },
+  {
+    "id": 10,
+    "category": "quality",
+    "question": "How do you ensure the quality of your Kenyan coffee?",
+    "answer": "We work with certified cupping labs, licensed graders, and experienced Q-graders to evaluate every lot. Our coffee is carefully processed, sorted, and graded according to Kenya's Coffee Board standards before export."
+  },
+  {
+    "id": 11,
+    "category": "sustainability",
+    "question": "Is Jowam Coffee Traders committed to sustainable sourcing?",
+    "answer": "Yes, we are committed to ethical and sustainable sourcing. We prioritize partnerships with smallholder farmers and cooperatives that promote fair compensation, environmentally friendly practices, and community development."
+  },
+  {
+    "id": 12,
+    "category": "payments",
+    "question": "What payment methods do you accept for coffee orders?",
+    "answer": "We accept international wire transfers and letters of credit (LC). Payment terms depend on the order size and buyer relationship, and are always agreed upon before shipment."
+  },
+  {
+    "id": 13,
+    "category": "partnerships",
+    "question": "Do you work with international distributors and roasters?",
+    "answer": "Yes, Jowam Coffee Traders partners with coffee roasters, importers, and distributors worldwide. We provide tailored sourcing solutions, whether for large-scale commercial buyers or small specialty roasters."
+  },
+  {
+    "id": 14,
+    "category": "support",
+    "question": "How can I get in touch with Jowam Coffee Traders?",
+    "answer": "You can reach us through our website contact form, by email at info@jowamcoffee.co.ke, or by phone. Our team is available to answer questions, provide samples, and guide you through the export process."
+  }
+]

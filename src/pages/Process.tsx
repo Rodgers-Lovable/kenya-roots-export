@@ -21,6 +21,7 @@ import JowamCoffee from "@/assets/jowam-coffee.jpg";
 import heroProcess from "@/assets/hero-process.jpg";
 import { processSteps, qualityStandards } from "@/data/process_and_quality";
 import { Helmet } from "react-helmet-async";
+import { PageSpecificFAQ } from "@/components/FAQ/PageSpecificFAQ";
 
 const customServices = [
   "Custom processing requests (natural, honey, experimental)",
@@ -398,6 +399,9 @@ export default function Process() {
             </div>
           </div>
         </section>
+
+        {/* Page-specific FAQ */}
+        <PageSpecificFAQ categories={["shipping", "quality"]} />
       </div>
     </>
   );

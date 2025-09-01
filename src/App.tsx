@@ -17,6 +17,7 @@ import ArticleDetail from "./pages/ArticleDetail";
 import Contact from "./pages/Contact";
 import RequestSamples from "./pages/RequestSamples";
 import Catalog from "./pages/Catalog";
+import FAQs from "./pages/FAQs";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ui/scroll-to-top";
 import { useEffect } from "react";
@@ -60,6 +61,7 @@ const App = () => {
                 <Route path="/insights/:slug" element={<ArticleDetail />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/request-samples" element={<RequestSamples />} />
+                <Route path="/faqs" element={<FAQs />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

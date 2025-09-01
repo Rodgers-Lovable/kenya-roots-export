@@ -20,6 +20,7 @@ import {
   type ContactFormData,
 } from "@/services/emailService";
 import { EmailJSConfigAlert } from "@/components/ui/EmailJSConfig";
+import { PageSpecificFAQ } from "@/components/FAQ/PageSpecificFAQ";
 import {
   COMPANY_ADDRESS,
   COMPANY_LOCATION,
@@ -537,6 +538,9 @@ export default function Contact() {
             </div>
           </div>
         </section>
+
+        {/* Page-specific FAQ */}
+        <PageSpecificFAQ categories={["support", "payments"]} />
       </div>
     </>
   );
