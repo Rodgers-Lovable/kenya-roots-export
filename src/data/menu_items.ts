@@ -23,7 +23,6 @@ export const navigation = {
   legal: [
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
-    { name: "FAQs", href: "/faqs" },
   ],
   social: [
     { name: "LinkedIn", href: "#", icon: Linkedin },
