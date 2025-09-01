@@ -16,6 +16,7 @@ import Insights from "./pages/Insights";
 import ArticleDetail from "./pages/ArticleDetail";
 import Contact from "./pages/Contact";
 import RequestSamples from "./pages/RequestSamples";
+import Catalog from "./pages/Catalog";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ui/scroll-to-top";
 import { useEffect } from "react";
@@ -50,6 +51,7 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/our-coffee" element={<OurCoffee />} />
+                <Route path="/catalog" element={<Catalog />} />
                 <Route path="/origins" element={<Origins />} />
                 <Route path="/origins/:slug" element={<OriginDetail />} />
                 <Route path="/process" element={<Process />} />

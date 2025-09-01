@@ -8,6 +8,7 @@ export const navigation = {
   main: [
     { name: "About Us", href: "/about" },
     { name: "Our Coffee", href: "/our-coffee" },
+    { name: "Catalog", href: "/catalog" },
     { name: "Origins", href: "/origins" },
     { name: "Process", href: "/process" },
     { name: "Sustainability", href: "/sustainability" },
