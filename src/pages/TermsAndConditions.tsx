@@ -8,9 +8,6 @@ const TermsAndConditions = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-
     // Load markdown content
     const loadContent = async () => {
       try {
