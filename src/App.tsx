@@ -37,8 +37,19 @@ function usePlausible(domain: string) {
   }, [domain]);
 }
 
+function useGoogleAnalytics() {
+  useEffect(() => {
+    const meta = document.createElement("meta");
+    meta.setAttribute("name", "google-site-verification");
+    meta.setAttribute("content", "dC0Tm4sXGBYVb3ThHpouwmB2t3AfRFq-TgQgA6Nn6eE");
+
+    document.head.appendChild(meta);
+  }, []);
+}
+
 const App = () => {
   usePlausible("jowamcoffee.co.ke");
+  useGoogleAnalytics();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -65,7 +76,10 @@ const App = () => {
                 <Route path="/request-samples" element={<RequestSamples />} />
                 <Route path="/faqs" element={<FAQs />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                <Route
+                  path="/terms-and-conditions"
+                  element={<TermsAndConditions />}
+                />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
