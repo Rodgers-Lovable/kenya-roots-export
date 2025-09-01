@@ -18,6 +18,8 @@ import Contact from "./pages/Contact";
 import RequestSamples from "./pages/RequestSamples";
 import Catalog from "./pages/Catalog";
 import FAQs from "./pages/FAQs";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ui/scroll-to-top";
 import { useEffect } from "react";
@@ -62,6 +64,8 @@ const App = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/request-samples" element={<RequestSamples />} />
                 <Route path="/faqs" element={<FAQs />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

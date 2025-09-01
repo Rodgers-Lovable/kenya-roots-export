@@ -21,8 +21,8 @@ export const navigation = {
     { name: "FAQs", href: "/faqs" },
   ],
   legal: [
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms & Conditions", href: "/terms-and-conditions" },
     { name: "FAQs", href: "/faqs" },
   ],
   social: [
