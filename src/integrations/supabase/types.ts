@@ -62,6 +62,72 @@ export type Database = {
         }
         Relationships: []
       }
+      catalog_items: {
+        Row: {
+          altitude: string | null
+          availability_status: string
+          created_at: string
+          description: string | null
+          farm_details: string | null
+          flavor_notes: string[]
+          grade: string
+          id: string
+          image_url: string | null
+          is_microlot: boolean
+          minimum_order_kg: number | null
+          name: string
+          price_per_kg: number | null
+          processing_method: string
+          region: string
+          seasonal_notes: string | null
+          slug: string
+          updated_at: string
+          variety: string
+        }
+        Insert: {
+          altitude?: string | null
+          availability_status?: string
+          created_at?: string
+          description?: string | null
+          farm_details?: string | null
+          flavor_notes?: string[]
+          grade: string
+          id?: string
+          image_url?: string | null
+          is_microlot?: boolean
+          minimum_order_kg?: number | null
+          name: string
+          price_per_kg?: number | null
+          processing_method: string
+          region: string
+          seasonal_notes?: string | null
+          slug: string
+          updated_at?: string
+          variety: string
+        }
+        Update: {
+          altitude?: string | null
+          availability_status?: string
+          created_at?: string
+          description?: string | null
+          farm_details?: string | null
+          flavor_notes?: string[]
+          grade?: string
+          id?: string
+          image_url?: string | null
+          is_microlot?: boolean
+          minimum_order_kg?: number | null
+          name?: string
+          price_per_kg?: number | null
+          processing_method?: string
+          region?: string
+          seasonal_notes?: string | null
+          slug?: string
+          updated_at?: string
+          variety?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
