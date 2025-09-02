@@ -5,16 +5,3 @@ Disallow: /private/
 
 # Sitemap
 Sitemap: https://jowamcoffee.co.ke/sitemap.xml
-
-# Specific crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
