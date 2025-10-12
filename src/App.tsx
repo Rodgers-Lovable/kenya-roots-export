@@ -22,7 +22,6 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ui/scroll-to-top";
-import { useEffect } from "react";
 import { useGoogleAnalytics } from "./hooks/use-google-verification";
 import { usePlausible } from "./hooks/use-plausible-script";
 
