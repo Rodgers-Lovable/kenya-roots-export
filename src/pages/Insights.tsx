@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Clock, Calendar, ArrowRight, Search, TrendingUp, Users, BookOpen, Coffee, Filter } from 'lucide-react'
+import { Clock, Calendar, ArrowRight, Search, TrendingUp, Users, BookOpen, Coffee, Filter, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -32,6 +32,10 @@ export default function Insights() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [selectedTag, setSelectedTag] = useState<string>('all')
+  const [currentPage, setCurrentPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(1)
+  
+  const ARTICLES_PER_PAGE = 9
 
   useEffect(() => {
     fetchArticles()
@@ -40,6 +44,10 @@ export default function Insights() {
   useEffect(() => {
     filterArticles()
   }, [articles, searchTerm, selectedCategory, selectedTag])
+
+  useEffect(() => {
+    setCurrentPage(1) // Reset to first page when filters change
+  }, [searchTerm, selectedCategory, selectedTag])
 
   const fetchArticles = async () => {
     try {
@@ -88,6 +96,14 @@ export default function Insights() {
     }
 
     setFilteredArticles(filtered)
+    setTotalPages(Math.ceil(filtered.length / ARTICLES_PER_PAGE))
+  }
+
+  // Get current page articles
+  const getCurrentPageArticles = () => {
+    const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE
+    const endIndex = startIndex + ARTICLES_PER_PAGE
+    return filteredArticles.slice(startIndex, endIndex)
   }
 
   const formatDate = (dateString: string) => {
@@ -222,7 +238,7 @@ export default function Insights() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredArticles.map((article) => (
+            {getCurrentPageArticles().map((article) => (
               <Link key={article.id} to={`/insights/${article.slug}`}>
                 <Card className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer h-full">
                   <div className="aspect-video overflow-hidden">
@@ -280,6 +296,56 @@ export default function Insights() {
                 }}
               >
                 Clear Filters
+              </Button>
+            </div>
+          )}
+
+          {/* Pagination */}
+          {filteredArticles.length > 0 && totalPages > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-12">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                <ChevronLeft className="h-4 w-4" />
+                Previous
+              </Button>
+
+              <div className="flex items-center gap-1">
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                  if (
+                    page === 1 ||
+                    page === totalPages ||
+                    (page >= currentPage - 1 && page <= currentPage + 1)
+                  ) {
+                    return (
+                      <Button
+                        key={page}
+                        variant={page === currentPage ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => setCurrentPage(page)}
+                        className="w-10"
+                      >
+                        {page}
+                      </Button>
+                    )
+                  } else if (page === currentPage - 2 || page === currentPage + 2) {
+                    return <span key={page} className="px-2">...</span>
+                  }
+                  return null
+                })}
+              </div>
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+              >
+                Next
+                <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
           )}
