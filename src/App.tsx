@@ -23,15 +23,11 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ui/scroll-to-top";
-<<<<<<< HEAD
-=======
 import AdminAuth from "./pages/AdminAuth";
 import { AdminLayout } from "./components/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ArticlesList from "./pages/admin/ArticlesList";
 import ArticleForm from "./pages/admin/ArticleForm";
-import { useEffect } from "react";
->>>>>>> e93109822ba1c9659a6edb2c5309f0022e07c0e0
 import { useGoogleAnalytics } from "./hooks/use-google-verification";
 import { usePlausible } from "./hooks/use-plausible-script";
 
