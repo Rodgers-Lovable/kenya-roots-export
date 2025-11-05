@@ -29,7 +29,6 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import ArticlesList from "./pages/admin/ArticlesList";
 import ArticleForm from "./pages/admin/ArticleForm";
 import { useGoogleAnalytics } from "./hooks/use-google-verification";
-import { usePlausible } from "./hooks/use-plausible-script";
 
 const queryClient = new QueryClient();
 
@@ -65,7 +64,6 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
 const App = () => {
   useGoogleAnalytics();
-  usePlausible("jowamcoffee.co.ke");
 
   return (
     <QueryClientProvider client={queryClient}>
