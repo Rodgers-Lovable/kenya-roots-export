@@ -30,6 +30,7 @@ import {
   COMPANY_SECONDARY_TEL,
 } from "@/core/constants";
 import { Helmet } from "react-helmet-async";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const contactInfo = [
   {
@@ -68,6 +69,7 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [cap, setCap] = useState(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -398,10 +400,12 @@ export default function Contact() {
                     />
                   </div>
 
+                  <ReCAPTCHA sitekey="6LcJLQYsAAAAAC5d1iE1325UTckIGRU2532TWc7z" onChange={(val: any) => setCap(val)} />
+
                   <Button
                     type="submit"
                     size="lg"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !cap}
                     className="w-full"
                   >
                     {isSubmitting ? (
