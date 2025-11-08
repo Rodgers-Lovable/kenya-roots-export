@@ -22,6 +22,7 @@ import {
 } from "@/services/emailService";
 import { EmailJSConfigAlert } from "@/components/ui/EmailJSConfig";
 import { Helmet } from "react-helmet-async";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const gradeOptions = [
   {
@@ -132,6 +133,7 @@ export default function RequestSamples() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [cap, setCap] = useState(null);
   const { toast } = useToast();
 
   const handleInputChange = (
@@ -149,6 +151,9 @@ export default function RequestSamples() {
         : prev.desiredGrades.filter((id) => id !== gradeId),
     }));
   };
+
+  const RECAPTCHA_SITE_KEY =
+    import.meta.env.VITE_RECAPTCHA_SITE_KEY || "your_recaptcha_site_key";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -812,15 +817,21 @@ export default function RequestSamples() {
                       evaluate the samples.
                     </p>
 
+                    <ReCAPTCHA
+                      sitekey={RECAPTCHA_SITE_KEY}
+                      onChange={(val: any) => setCap(val)}
+                    />
+
                     <Button
                       type="submit"
                       size="lg"
                       disabled={
                         isSubmitting ||
+                        !cap ||
                         !formData.followUpConsent ||
                         formData.desiredGrades.length === 0
                       }
-                      className="w-full"
+                      className="w-full mt-5"
                     >
                       {isSubmitting ? (
                         <>Submitting Request...</>
