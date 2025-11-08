@@ -3,13 +3,17 @@ import emailjs from "@emailjs/browser";
 // EmailJS configuration
 const EMAILJS_SERVICE_ID =
   import.meta.env.VITE_EMAILJS_SERVICE_ID || "your_service_id";
+
 const EMAILJS_TEMPLATE_ID_CONTACT =
   import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID ||
   "your_contact_template_id";
+
 const EMAILJS_TEMPLATE_ID_SAMPLES =
   import.meta.env.VITE_EMAILJS_SAMPLE_TEMPLATE_ID || "your_samples_template_id";
+
 const EMAILJS_PUBLIC_KEY =
   import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "your_public_key";
+
 const RECAPTCHA_SITE_KEY =
   import.meta.env.VITE_RECAPTCHA_SITE_KEY || "your_recaptcha_site_key";
 
