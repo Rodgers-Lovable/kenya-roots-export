@@ -10,6 +10,8 @@ const EMAILJS_TEMPLATE_ID_SAMPLES =
   import.meta.env.VITE_EMAILJS_SAMPLE_TEMPLATE_ID || "your_samples_template_id";
 const EMAILJS_PUBLIC_KEY =
   import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "your_public_key";
+const RECAPTCHA_SITE_KEY =
+  import.meta.env.VITE_RECAPTCHA_SITE_KEY || "your_recaptcha_site_key";
 
 // Initialize EmailJS
 if (EMAILJS_PUBLIC_KEY !== "your_public_key") {
@@ -58,10 +60,23 @@ export interface SampleRequestData {
   followUpConsent: boolean;
 }
 
+async function getRecaptchaToken(action = "contact_form") {
+  if (!(window as any).grecaptcha) {
+    throw new Error("reCAPTCHA not loaded");
+  }
+
+  const token = await (window as any).grecaptcha.execute(RECAPTCHA_SITE_KEY, {
+    action,
+  });
+  return token;
+}
+
 export const sendContactEmail = async (
   formData: ContactFormData
 ): Promise<void> => {
   try {
+    const token = await getRecaptchaToken("submit");
+
     const templateParams = {
       from_name: formData.name,
       from_company: formData.company,
@@ -72,6 +87,7 @@ export const sendContactEmail = async (
       message: formData.message,
       form_type: "General Request",
       to_email: "trading@jowamcoffee.com",
+      recaptcha_token: token,
     };
 
     const result = await emailjs.send(
