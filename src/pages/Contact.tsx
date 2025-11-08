@@ -74,6 +74,9 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  const RECAPTCHA_SITE_KEY =
+    import.meta.env.VITE_RECAPTCHA_SITE_KEY || "your_recaptcha_site_key";
+
   const handleInputChange = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -400,7 +403,10 @@ export default function Contact() {
                     />
                   </div>
 
-                  <ReCAPTCHA sitekey="6LcJLQYsAAAAAC5d1iE1325UTckIGRU2532TWc7z" onChange={(val: any) => setCap(val)} />
+                  <ReCAPTCHA
+                    sitekey={RECAPTCHA_SITE_KEY}
+                    onChange={(val: any) => setCap(val)}
+                  />
 
                   <Button
                     type="submit"
