@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { useUmamiAnalytics } from "@/hooks/useUmamiAnalytics";
 import { isEmailJSConfigured } from "@/services/emailService";
 import emailjs from '@emailjs/browser';
 
@@ -14,6 +15,7 @@ export function NewsletterForm({ className = "", variant = "footer" }: Newslette
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { trackNewsletterSignup } = useUmamiAnalytics();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,6 +47,7 @@ export function NewsletterForm({ className = "", variant = "footer" }: Newslette
       );
 
       if (result.status === 200) {
+        trackNewsletterSignup(true);
         toast({
           title: "Successfully subscribed!",
           description: "You'll receive our latest coffee insights and harvest updates.",

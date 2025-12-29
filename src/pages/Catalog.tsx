@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Skeleton } from "@/components/ui/skeleton"
 import { supabase } from "@/integrations/supabase/client"
+import { useUmamiAnalytics } from "@/hooks/useUmamiAnalytics"
 import { Search, Filter, Download, Star, MapPin, Calendar, Coffee } from 'lucide-react'
 import heroImage from "@/assets/jowam-bags-hero.jpg"
 import coffeeBeansImage from "@/assets/coffee-bags.jpeg"
@@ -46,6 +47,7 @@ export default function Catalog() {
   const [selectedRegion, setSelectedRegion] = useState<string>('all')
   const [selectedGrade, setSelectedGrade] = useState<string>('all')
   const [selectedProcessing, setSelectedProcessing] = useState<string>('all')
+  const { trackDownload, trackCTAClick } = useUmamiAnalytics()
 
   useEffect(() => {
     fetchCatalogItems()
@@ -455,7 +457,11 @@ export default function Catalog() {
               Get our comprehensive PDF catalog with detailed specifications, pricing, 
               and availability information for all our coffee offerings.
             </p>
-            <Button size="lg" className="bg-coffee-green hover:bg-coffee-green/90">
+            <Button 
+              size="lg" 
+              className="bg-coffee-green hover:bg-coffee-green/90"
+              onClick={() => trackDownload('coffee_catalog_2024')}
+            >
               <Download className="h-5 w-5 mr-2" />
               Download Full Catalog (PDF)
             </Button>

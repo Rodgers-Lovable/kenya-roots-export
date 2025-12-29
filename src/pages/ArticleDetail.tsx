@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Calendar, Clock, ArrowLeft, Share2, User } from 'lucide-react'
 import { supabase } from "@/integrations/supabase/client"
+import { useUmamiAnalytics } from "@/hooks/useUmamiAnalytics"
 
 interface Article {
   id: string
@@ -25,6 +26,7 @@ export default function ArticleDetail() {
   const [article, setArticle] = useState<Article | null>(null)
   const [loading, setLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
+  const { trackArticleView } = useUmamiAnalytics()
 
   useEffect(() => {
     if (slug) {
@@ -47,6 +49,8 @@ export default function ArticleDetail() {
         setNotFound(true)
       } else {
         setArticle(data)
+        // Track article view
+        trackArticleView(data.slug, data.title)
         // Update page title and meta description for SEO
         document.title = `${data.title} | Jowam Coffee Insights`
         

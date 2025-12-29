@@ -18,6 +18,7 @@ import coffeeCherry from "@/assets/coffee-cherries.jpg";
 import qualityControl from "@/assets/quality-control.jpg";
 import { regions } from "@/data/origins";
 import { Helmet } from "react-helmet-async";
+import { useUmamiAnalytics } from "@/hooks/useUmamiAnalytics";
 
 const valueProps = [
   {
@@ -68,6 +69,7 @@ const coffeeGrades = [
 
 export default function Home() {
   const featuredRegions = regions.filter((region) => region.featured);
+  const { trackCTAClick } = useUmamiAnalytics();
 
   return (
     <>
@@ -147,7 +149,7 @@ export default function Home() {
                 specialty roasters worldwide
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" asChild>
+                <Button size="lg" variant="secondary" asChild onClick={() => trackCTAClick('explore_coffee', 'hero')}>
                   <Link to="/our-coffee">
                     Explore Our Coffee
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -159,6 +161,7 @@ export default function Home() {
                   variant="outline"
                   className="border-warm-cream text-warm-cream bg-transparent hover:bg-warm-cream hover:text-charcoal"
                   asChild
+                  onClick={() => trackCTAClick('request_samples', 'hero')}
                 >
                   <Link to="/request-samples">Request Samples</Link>
                 </Button>

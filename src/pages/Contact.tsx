@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { useUmamiAnalytics } from "@/hooks/useUmamiAnalytics";
 import { Mail, Phone, MapPin, Clock, MessageSquare, Send } from "lucide-react";
 import heroContact from "@/assets/hero-contact.jpg";
 import {
@@ -73,6 +74,7 @@ export default function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { trackFormSubmit } = useUmamiAnalytics();
 
   const RECAPTCHA_SITE_KEY =
     import.meta.env.VITE_RECAPTCHA_SITE_KEY || "your_recaptcha_site_key";
@@ -107,6 +109,8 @@ export default function Contact() {
       };
 
       await sendContactEmail(contactData);
+
+      trackFormSubmit('contact_form', true);
 
       toast({
         title: "Message sent successfully!",
