@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { useUmamiAnalytics } from "@/hooks/useUmamiAnalytics";
 import { Send, Package, Clock, Coffee, Truck, CheckCircle } from "lucide-react";
 import heroSamples from "@/assets/jowam-bags-hero.jpg";
 import {
@@ -135,6 +136,7 @@ export default function RequestSamples() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [cap, setCap] = useState(null);
   const { toast } = useToast();
+  const { trackFormSubmit } = useUmamiAnalytics();
 
   const handleInputChange = (
     name: string,
@@ -194,6 +196,8 @@ export default function RequestSamples() {
       };
 
       await sendSampleRequestEmail(sampleRequestData);
+
+      trackFormSubmit('request_samples', true);
 
       toast({
         title: "Sample request submitted successfully!",
