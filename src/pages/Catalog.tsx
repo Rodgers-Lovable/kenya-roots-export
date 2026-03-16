@@ -473,7 +473,7 @@ export default function Catalog() {
       </section> */}
 
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Source Premium Kenyan Coffee?</h2>
@@ -482,10 +482,11 @@ export default function Catalog() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/request-samples">
-                <Button size="lg" className="bg-coffee-green hover:bg-coffee-green/90">
+                <Button size="lg" className="bg-coffee-green hover:bg-coffee-green text-primary border border-primary">
                   Request Samples
                 </Button>
               </Link>
+
               <Link to="/contact">
                 <Button variant="outline" size="lg">
                   Contact Our Team
