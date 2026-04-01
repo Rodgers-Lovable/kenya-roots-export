@@ -1,5 +1,8 @@
+'use client'
+
 import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import {
   Sidebar,
   SidebarContent,
@@ -36,14 +39,14 @@ const quickLinks = [
 ]
 
 export function AdminSidebar() {
-  const location = useLocation()
-  const currentPath = location.pathname
+  const pathname = usePathname()
+  
 
   const isActive = (path: string) => {
     if (path === '/admin') {
-      return currentPath === path
+      return pathname === path
     }
-    return currentPath.startsWith(path)
+    return pathname.startsWith(path)
   }
 
   const getNavCls = (path: string) =>
@@ -66,14 +69,14 @@ export function AdminSidebar() {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <NavLink 
-                      to={item.url} 
-                      end={item.url === '/admin'}
+                    <Link 
+                      href={item.url} 
+                     
                       className={getNavCls(item.url)}
                     >
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
-                    </NavLink>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -88,14 +91,14 @@ export function AdminSidebar() {
               {quickLinks.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <NavLink 
-                      to={item.url} 
+                    <Link 
+                      href={item.url} 
                       className="hover:bg-muted/50"
                       target={item.url.startsWith('/') && !item.url.startsWith('/admin') ? '_blank' : undefined}
                     >
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
-                    </NavLink>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

@@ -1,5 +1,7 @@
+'use client'
+
 import React, { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useRouter, useParams } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -25,8 +27,9 @@ interface ArticleFormData {
 }
 
 export default function ArticleForm() {
-  const navigate = useNavigate()
-  const { id } = useParams()
+  const router = useRouter()
+  const params = useParams()
+  const id = params?.id as string | undefined
   const isEditing = !!id
   const { toast } = useToast()
 
@@ -91,7 +94,7 @@ export default function ArticleForm() {
         description: "Failed to fetch article",
         variant: "destructive",
       })
-      navigate('/admin/articles')
+      router.push('/admin/articles')
     } finally {
       setInitialLoading(false)
     }
@@ -206,7 +209,7 @@ export default function ArticleForm() {
         })
       }
 
-      navigate('/admin/articles')
+      router.push('/admin/articles')
     } catch (error) {
       console.error('Error saving article:', error)
       setError('Failed to save article. Please try again.')
@@ -239,7 +242,7 @@ export default function ArticleForm() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4">
-        <Button variant="ghost" size="sm" onClick={() => navigate('/admin/articles')}>
+        <Button variant="ghost" size="sm" onClick={() => router.push('/admin/articles')}>
           <ArrowLeft className="h-4 w-4" />
         </Button>
         <div>

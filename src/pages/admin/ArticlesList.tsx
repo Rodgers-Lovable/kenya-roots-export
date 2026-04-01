@@ -1,5 +1,7 @@
+'use client'
+
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -216,7 +218,7 @@ export default function ArticlesList() {
             Manage your coffee industry articles and content
           </p>
         </div>
-        <Link to="/admin/articles/new">
+        <Link href="/admin/articles/new">
           <Button>
             <Plus className="h-4 w-4 mr-2" />
             New Article
@@ -326,13 +328,13 @@ export default function ArticlesList() {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem asChild>
-                            <Link to={`/insights/${article.slug}`} target="_blank">
+                            <Link href={`/insights/${article.slug}`} target="_blank">
                               <Eye className="h-4 w-4 mr-2" />
                               View
                             </Link>
                           </DropdownMenuItem>
                           <DropdownMenuItem asChild>
-                            <Link to={`/admin/articles/${article.id}/edit`}>
+                            <Link href={`/admin/articles/${article.id}/edit`}>
                               <Edit className="h-4 w-4 mr-2" />
                               Edit
                             </Link>
@@ -377,7 +379,7 @@ export default function ArticlesList() {
                   Clear Filters
                 </Button>
               ) : (
-                <Link to="/admin/articles/new">
+                <Link href="/admin/articles/new">
                   <Button>
                     <Plus className="h-4 w-4 mr-2" />
                     Create Article

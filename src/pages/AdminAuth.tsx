@@ -1,15 +1,17 @@
+'use client'
+
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import { AuthForm } from '@/components/auth/AuthForm'
 import { useAuth } from '@/hooks/useAuth'
 
 export default function AdminAuth() {
-  const navigate = useNavigate()
+  const router = useRouter()
   const { user, loading } = useAuth()
 
   useEffect(() => {
     if (!loading && user) {
-      navigate('/admin')
+      router.push('/admin')
     }
   }, [user, loading, navigate])
 
@@ -21,5 +23,5 @@ export default function AdminAuth() {
     )
   }
 
-  return <AuthForm onSuccess={() => navigate('/admin')} />
+  return <AuthForm onSuccess={() => router.push('/admin')} />
 }
