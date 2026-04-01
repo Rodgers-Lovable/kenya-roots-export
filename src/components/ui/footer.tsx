@@ -27,7 +27,7 @@ export function Footer() {
               <img
                 height={5}
                 width={40}
-                src={Logo}
+                src={Logo.src}
                 alt="Jowam coffee traders"
               />
               <span className="font-playfair text-xl font-bold text-warm-cream">

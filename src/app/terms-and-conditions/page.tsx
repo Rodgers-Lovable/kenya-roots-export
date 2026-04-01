@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import TermsAndConditions from '@/pages/TermsAndConditions'
+import TermsAndConditions from '@/views/TermsAndConditions'
 
 export const metadata: Metadata = {
   title: 'Terms and Conditions - Jowam Coffee Traders',

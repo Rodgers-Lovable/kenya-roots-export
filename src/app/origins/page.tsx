@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Origins from '@/pages/Origins'
+import Origins from '@/views/Origins'
 
 export const metadata: Metadata = {
   title: 'Coffee Origins - Jowam Coffee Traders',

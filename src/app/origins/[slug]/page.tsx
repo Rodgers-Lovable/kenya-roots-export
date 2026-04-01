@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { regions } from '@/data/origins'
-import OriginDetail from '@/pages/OriginDetail'
+import OriginDetail from '@/views/OriginDetail'
 
 export async function generateMetadata({
   params,

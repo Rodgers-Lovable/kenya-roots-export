@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Process from '@/pages/Process'
+import Process from '@/views/Process'
 
 export const metadata: Metadata = {
   title: 'Our Process - Jowam Coffee Traders',

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { supabase } from '@/integrations/supabase/client'
-import ArticleDetail from '@/pages/ArticleDetail'
+import ArticleDetail from '@/views/ArticleDetail'
 
 export async function generateMetadata({
   params,

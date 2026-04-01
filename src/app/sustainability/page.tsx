@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Sustainability from '@/pages/Sustainability'
+import Sustainability from '@/views/Sustainability'
 
 export const metadata: Metadata = {
   title: 'Sustainability - Jowam Coffee Traders',

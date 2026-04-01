@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Catalog from '@/pages/Catalog'
+import Catalog from '@/views/Catalog'
 
 export const metadata: Metadata = {
   title: 'Coffee Catalog - Jowam Coffee Traders',

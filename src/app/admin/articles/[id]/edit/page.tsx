@@ -1,3 +1,3 @@
-import ArticleForm from '@/pages/admin/ArticleForm'
+import ArticleForm from '@/views/admin/ArticleForm'
 
 export default ArticleForm

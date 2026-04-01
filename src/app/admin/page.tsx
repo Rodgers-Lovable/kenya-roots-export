@@ -1,3 +1,3 @@
-import AdminDashboard from '@/pages/admin/AdminDashboard'
+import AdminDashboard from '@/views/admin/AdminDashboard'
 
 export default AdminDashboard

@@ -1,3 +1,3 @@
-import ArticlesList from '@/pages/admin/ArticlesList'
+import ArticlesList from '@/views/admin/ArticlesList'
 
 export default ArticlesList

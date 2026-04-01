@@ -23,7 +23,7 @@ export function Header() {
       >
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 flex items-center space-x-2">
-            <img height={5} width={40} src={Logo} alt="Jowam coffee traders" />
+            <img height={5} width={40} src={Logo.src} alt="Jowam coffee traders" />
             <span className="font-playfair text-xl font-bold text-coffee-brown">
               { COMPANY_NAME }
             </span>
@@ -88,7 +88,7 @@ export function Header() {
                   <img
                     height={5}
                     width={40}
-                    src={Logo}
+                    src={Logo.src}
                     alt="Jowam coffee traders"
                   />
                   <span className="font-playfair text-xl font-bold text-warm-cream">

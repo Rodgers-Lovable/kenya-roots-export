@@ -1,3 +1,3 @@
-import AdminAuth from '@/pages/AdminAuth'
+import AdminAuth from '@/views/AdminAuth'
 
 export default AdminAuth

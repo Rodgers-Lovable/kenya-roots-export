@@ -1,0 +1,23 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/insights/[slug]/page": "/insights/[slug]",
+  "/origins/[slug]/page": "/origins/[slug]",
+  "/page": "/",
+  "/about/page": "/about",
+  "/catalog/page": "/catalog",
+  "/insights/page": "/insights",
+  "/faqs/page": "/faqs",
+  "/contact/page": "/contact",
+  "/process/page": "/process",
+  "/our-coffee/page": "/our-coffee",
+  "/request-samples/page": "/request-samples",
+  "/origins/page": "/origins",
+  "/sustainability/page": "/sustainability",
+  "/privacy-policy/page": "/privacy-policy",
+  "/terms-and-conditions/page": "/terms-and-conditions",
+  "/admin/articles/[id]/edit/page": "/admin/articles/[id]/edit",
+  "/admin/auth/page": "/admin/auth",
+  "/admin/articles/page": "/admin/articles",
+  "/admin/page": "/admin",
+  "/admin/articles/new/page": "/admin/articles/new"
+}
