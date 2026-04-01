@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -22,7 +24,6 @@ import {
   type SampleRequestData,
 } from "@/services/emailService";
 import { EmailJSConfigAlert } from "@/components/ui/EmailJSConfig";
-import { Helmet } from "react-helmet-async";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const gradeOptions = [
@@ -155,7 +156,7 @@ export default function RequestSamples() {
   };
 
   const RECAPTCHA_SITE_KEY =
-    import.meta.env.VITE_RECAPTCHA_SITE_KEY || "your_recaptcha_site_key";
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "your_recaptcha_site_key";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -244,86 +245,6 @@ export default function RequestSamples() {
 
   return (
     <>
-      <Helmet>
-        <title>Request Coffee Samples | Jowam Coffee Traders LTD</title>
-        <meta
-          name="description"
-          content="Request premium Kenyan Arabica coffee samples directly from Jowam Coffee Traders LTD. Explore our unique origins and taste the quality before making your bulk order."
-        />
-        <link
-          rel="canonical"
-          href="https://jowamcoffee.co.ke/request-samples"
-        />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Request Coffee Samples | Jowam Coffee Traders LTD"
-        />
-        <meta
-          property="og:description"
-          content="Request coffee samples from Jowam Coffee Traders LTD and experience the quality of our premium Kenyan Arabica exports before placing your order."
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://jowamcoffee.co.ke/request-samples"
-        />
-        <meta
-          property="og:image"
-          content="https://jowamcoffee.co.ke/images/sample-request.jpg"
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Request Coffee Samples | Jowam Coffee Traders LTD"
-        />
-        <meta
-          name="twitter:description"
-          content="Request premium Kenyan coffee samples directly from Jowam Coffee Traders LTD and taste our quality origins before your bulk order."
-        />
-        <meta
-          name="twitter:image"
-          content="https://jowamcoffee.co.ke/images/sample-request.jpg"
-        />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">{`
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Request Coffee Samples | Jowam Coffee Traders LTD",
-      "url": "https://jowamcoffee.co.ke/request-samples",
-      "description": "Request premium Kenyan Arabica coffee samples directly from Jowam Coffee Traders LTD. Explore our unique origins and taste the quality before making your bulk order.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Jowam Coffee Traders LTD",
-        "url": "https://jowamcoffee.co.ke",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://jowamcoffee.co.ke/logo.png"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+254 (0) 722 762 945",
-          "contactType": "Sales",
-          "email": "trading@jowamcoffee.com",
-          "areaServed": "Worldwide",
-          "availableLanguage": ["English"]
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Nairobi",
-          "addressLocality": "Nairobi",
-          "addressCountry": "KE"
-        }
-      }
-    }
-  `}</script>
-      </Helmet>
-
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative py-24 text-warm-cream overflow-hidden">

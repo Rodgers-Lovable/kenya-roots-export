@@ -1,3 +1,3 @@
-export default function HomePage() {
-  return <div>Home — migration in progress</div>
-}
+import Home from '@/pages/Home'
+
+export default Home

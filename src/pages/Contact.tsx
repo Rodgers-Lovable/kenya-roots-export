@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -30,7 +32,6 @@ import {
   COMPANY_SECONDARY_EMAIL,
   COMPANY_SECONDARY_TEL,
 } from "@/core/constants";
-import { Helmet } from "react-helmet-async";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const contactInfo = [
@@ -77,7 +78,7 @@ export default function Contact() {
   const { trackFormSubmit } = useUmamiAnalytics();
 
   const RECAPTCHA_SITE_KEY =
-    import.meta.env.VITE_RECAPTCHA_SITE_KEY || "your_recaptcha_site_key";
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "your_recaptcha_site_key";
 
   const handleInputChange = (name: string, value: string) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -143,80 +144,6 @@ export default function Contact() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us | Jowam Coffee Traders LTD</title>
-        <meta
-          name="description"
-          content="Get in touch with Jowam Coffee Traders LTD for inquiries on premium Kenyan Arabica coffee exports. Contact us via email, phone, or our office in Nairobi, Kenya."
-        />
-        <link rel="canonical" href="https://jowamcoffee.co.ke/contact" />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Contact Us | Jowam Coffee Traders LTD"
-        />
-        <meta
-          property="og:description"
-          content="Reach out to Jowam Coffee Traders LTD for all inquiries about sourcing and exporting premium Kenyan coffee."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://jowamcoffee.co.ke/contact" />
-        <meta
-          property="og:image"
-          content="https://jowamcoffee.co.ke/images/contact.jpg"
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Contact Us | Jowam Coffee Traders LTD"
-        />
-        <meta
-          name="twitter:description"
-          content="Get in touch with Jowam Coffee Traders LTD for inquiries about our coffee exports and sourcing partnerships."
-        />
-        <meta
-          name="twitter:image"
-          content="https://jowamcoffee.co.ke/images/contact.jpg"
-        />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">{`
-    {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "name": "Contact Us | Jowam Coffee Traders LTD",
-      "url": "https://jowamcoffee.co.ke/contact",
-      "description": "Get in touch with Jowam Coffee Traders LTD for inquiries on premium Kenyan Arabica coffee exports.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Jowam Coffee Traders LTD",
-        "url": "https://jowamcoffee.co.ke",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://jowamcoffee.co.ke/logo.png"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+254 (0) 722 762 945",
-          "contactType": "Customer Service",
-          "email": "trading@jowamcoffee.com",
-          "areaServed": "Worldwide",
-          "availableLanguage": ["English"]
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Nairobi",
-          "addressLocality": "Nairobi",
-          "addressCountry": "KE"
-        }
-      }
-    }
-  `}</script>
-      </Helmet>
-
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative py-24 text-warm-cream overflow-hidden">

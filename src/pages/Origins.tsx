@@ -10,14 +10,13 @@ import {
   Calendar,
   Users,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import heroImage from "@/assets/hero-kenya-coffee.jpg";
 import coffeeCherry from "@/assets/coffee-cherries.jpg";
 import coffeeDrying from "@/assets/coffee-drying.jpg";
 import qualityControl from "@/assets/quality-control.jpg";
 import { regions } from "@/data/origins";
 import MyLeafletMap from "@/components/ui/my-leaflet-map";
-import { Helmet } from "react-helmet-async";
 
 const whyOriginMatters = [
   {
@@ -52,76 +51,6 @@ export default function Origins() {
 
   return (
     <>
-      <Helmet>
-        <title>Our Coffee Origins | Jowam Coffee Traders LTD</title>
-        <meta
-          name="description"
-          content="Explore the origins of Jowam Coffee Traders' premium Kenyan coffee. We source from renowned regions including Nyeri, Kirinyaga, Kisii, Meru, Bungoma, and Murang’a, known for exceptional Arabica beans."
-        />
-        <link rel="canonical" href="https://jowamcoffee.co.ke/origins" />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Our Coffee Origins | Jowam Coffee Traders LTD"
-        />
-        <meta
-          property="og:description"
-          content="Discover the regions behind Jowam Coffee Traders' premium Kenyan coffee — Nyeri, Kirinyaga, Kisii, Meru, Bungoma, and Murang’a."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://jowamcoffee.co.ke/origins" />
-        <meta
-          property="og:image"
-          content="https://jowamcoffee.co.ke/images/coffee-origins.jpg"
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Our Coffee Origins | Jowam Coffee Traders LTD"
-        />
-        <meta
-          name="twitter:description"
-          content="We source Kenyan coffee from Nyeri, Kirinyaga, Kisii, Meru, Bungoma, and Murang’a — regions famous for rich, high-altitude Arabica beans."
-        />
-        <meta
-          name="twitter:image"
-          content="https://jowamcoffee.co.ke/images/coffee-origins.jpg"
-        />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">{`
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Our Coffee Origins | Jowam Coffee Traders Kenya",
-      "url": "https://jowamcoffee.co.ke/origins",
-      "description": "Explore the origins of Jowam Coffee Traders' premium Kenyan coffee. We source from regions including Nyeri, Kirinyaga, Kisii, Meru, Bungoma, and Murang’a, known for exceptional Arabica beans.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Jowam Coffee Traders",
-        "url": "https://jowamcoffee.co.ke",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://jowamcoffee.co.ke/logo.png"
-        }
-      },
-      "mainEntity": {
-        "@type": "ItemList",
-        "itemListElement": [
-          { "@type": "Place", "name": "Nyeri, Kenya" },
-          { "@type": "Place", "name": "Kirinyaga, Kenya" },
-          { "@type": "Place", "name": "Embu, Kenya" },
-          { "@type": "Place", "name": "Murang’a, Kenya" }
-        ]
-      },
-      "image": "https://jowamcoffee.co.ke/images/coffee-origins.jpg"
-    }
-  `}</script>
-      </Helmet>
-
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative py-32 gradient-hero text-warm-cream overflow-hidden">
@@ -197,7 +126,7 @@ export default function Origins() {
               </div>
 
               <Button variant="outline" className="mt-10" asChild>
-                <Link to="#featured-regions">View Region Details</Link>
+                <Link href="#featured-regions">View Region Details</Link>
               </Button>
             </div>
           </div>
@@ -276,7 +205,7 @@ export default function Origins() {
                     </div>
 
                     <Button variant="outline" className="w-full mt-4" asChild>
-                      <Link to={`/origins/${region.slug}`}>
+                      <Link href={`/origins/${region.slug}`}>
                         Explore {region.name}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
@@ -340,7 +269,7 @@ export default function Origins() {
                       className="w-full mt-4 text-kenyan-green hover:text-kenyan-green/80"
                       asChild
                     >
-                      <Link to={`/origins/${region.slug}`}>
+                      <Link href={`/origins/${region.slug}`}>
                         Learn More
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
@@ -428,10 +357,10 @@ export default function Origins() {
                 className="border-warm-cream text-warm-cream bg-transparent hover:bg-warm-cream hover:text-kenyan-green"
                 asChild
               >
-                <Link to="/request-samples">Request Origin Samples</Link>
+                <Link href="/request-samples">Request Origin Samples</Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/contact">Discuss Your Needs</Link>
+                <Link href="/contact">Discuss Your Needs</Link>
               </Button>
             </div>
           </div>

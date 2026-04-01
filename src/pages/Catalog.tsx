@@ -1,5 +1,7 @@
+"use client"
+
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -182,7 +184,7 @@ export default function Catalog() {
               Our catalog provides detailed information on varieties, processing methods, grades, and seasonal 
               availability to help you find the perfect coffee for your roasting needs.
             </p>
-            <Link to="/request-samples">
+            <Link href="/request-samples">
               <Button size="lg" className="bg-coffee-green hover:bg-coffee-green/90">
                 Request Samples
               </Button>
@@ -340,7 +342,7 @@ export default function Catalog() {
               
               <div className="text-center mt-8">
                 <p className="text-muted-foreground mb-4">Available in limited quantities</p>
-                <Link to="/contact">
+                <Link href="/contact">
                   <Button variant="outline" size="lg">
                     Contact Us for Availability
                   </Button>
@@ -481,13 +483,13 @@ export default function Catalog() {
               Contact our team to discuss your specific requirements and arrange sample shipments
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/request-samples">
+              <Link href="/request-samples">
                 <Button size="lg" className="bg-coffee-green hover:bg-coffee-green text-primary border border-primary">
                   Request Samples
                 </Button>
               </Link>
 
-              <Link to="/contact">
+              <Link href="/contact">
                 <Button variant="outline" size="lg">
                   Contact Our Team
                 </Button>

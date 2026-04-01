@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client"
+
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -17,7 +19,6 @@ import heroImage from "@/assets/hero-kenya-coffee.jpg";
 import coffeeCherry from "@/assets/coffee-cherries.jpg";
 import qualityControl from "@/assets/quality-control.jpg";
 import { regions } from "@/data/origins";
-import { Helmet } from "react-helmet-async";
 import { useUmamiAnalytics } from "@/hooks/useUmamiAnalytics";
 
 const valueProps = [
@@ -73,62 +74,6 @@ export default function Home() {
 
   return (
     <>
-      <Helmet>
-        <title>Jowam Coffee Traders | Premium Kenyan Coffee Exports</title>
-        <meta
-          name="description"
-          content="Jowam Coffee Traders exports the finest Kenyan coffee beans worldwide. We are committed to quality, sustainability, and empowering coffee farming communities across Kenya."
-        />
-        <link rel="canonical" href="https://jowamcoffee.co.ke/" />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Jowam Coffee Traders | Premium Kenyan Coffee Exports"
-        />
-        <meta
-          property="og:description"
-          content="Exporting premium Kenyan coffee globally with a commitment to quality, sustainability, and farmer empowerment."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://jowamcoffee.co.ke/" />
-        <meta
-          property="og:image"
-          content="https://jowamcoffee.co.ke/images/kenyan-coffee.jpg"
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Jowam Coffee Traders | Premium Kenyan Coffee Exports"
-        />
-        <meta
-          name="twitter:description"
-          content="Exporting premium Kenyan coffee globally with a commitment to sustainability and farmer empowerment."
-        />
-        <meta
-          name="twitter:image"
-          content="https://jowamcoffee.co.ke/images/kenyan-coffee.jpg"
-        />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">{`
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Jowam Coffee Traders",
-      "url": "https://jowamcoffee.co.ke",
-      "logo": "https://jowamcoffee.co.ke/logo.png",
-      "description": "Jowam Coffee Traders exports premium Kenyan coffee beans worldwide with a commitment to quality, sustainability, and farmer empowerment.",
-      "sameAs": [
-        "https://www.linkedin.com/company/jowam-coffee-traders",
-        "https://twitter.com/jowamcoffee"
-      ]
-    }
-  `}</script>
-      </Helmet>
-
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -150,7 +95,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="secondary" asChild onClick={() => trackCTAClick('explore_coffee', 'hero')}>
-                  <Link to="/our-coffee">
+                  <Link href="/our-coffee">
                     Explore Our Coffee
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
@@ -163,7 +108,7 @@ export default function Home() {
                   asChild
                   onClick={() => trackCTAClick('request_samples', 'hero')}
                 >
-                  <Link to="/request-samples">Request Samples</Link>
+                  <Link href="/request-samples">Request Samples</Link>
                 </Button>
               </div>
             </div>
@@ -250,7 +195,7 @@ export default function Home() {
                       </div>
                     </div>
                     <Button variant="outline" className="w-full mt-4" asChild>
-                      <Link to={`/origins/${origin.name.toLowerCase()}`}>
+                      <Link href={`/origins/${origin.name.toLowerCase()}`}>
                         View Region Details
                       </Link>
                     </Button>
@@ -261,7 +206,7 @@ export default function Home() {
 
             <div className="text-center mt-12">
               <Button variant="secondary" size="lg" asChild>
-                <Link to="/origins">
+                <Link href="/origins">
                   Explore All Origins
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
@@ -304,7 +249,7 @@ export default function Home() {
                 </div>
 
                 <Button variant="default" size="lg" className="mt-8" asChild>
-                  <Link to="/our-coffee">
+                  <Link href="/our-coffee">
                     Learn About Our Coffee
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
@@ -395,7 +340,7 @@ export default function Home() {
                 </div>
 
                 <Button variant="secondary" size="lg" asChild>
-                  <Link to="/process">
+                  <Link href="/process">
                     See Our Process
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
@@ -422,10 +367,10 @@ export default function Home() {
                 className="border-warm-cream text-warm-cream bg-transparent hover:bg-warm-cream hover:text-kenyan-green"
                 asChild
               >
-                <Link to="/request-samples">Request Samples</Link>
+                <Link href="/request-samples">Request Samples</Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/contact">Talk to Our Trade Team</Link>
+                <Link href="/contact">Talk to Our Trade Team</Link>
               </Button>
             </div>
           </div>

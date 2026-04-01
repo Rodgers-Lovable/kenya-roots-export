@@ -10,8 +10,7 @@ import {
   Shield,
   Globe,
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Link from "next/link";
 import { COMPANY_NAME, COMPANY_WEBSITE } from "@/core/constants";
 
 const values = [
@@ -89,31 +88,6 @@ const team = [
 export default function About() {
   return (
     <>
-      <Helmet>
-        <title>About Us | {COMPANY_NAME}</title>
-        <meta
-          name="description"
-          content="Jowam Coffee Traders LTD was founded in June 2006 as an exporting company for coffees. We promote kenyan farmers by providing advanced farming technologies to ensure production of high-quality coffee that is of great value."
-        />
-        <link rel="canonical" href={`${COMPANY_WEBSITE}/about`} />
-
-        {/* Open Graph (Facebook/LinkedIn/WhatsApp) */}
-        <meta property="og:title" content={`About Us | ${COMPANY_NAME}`} />
-        <meta
-          property="og:description"
-          content="Learn more about Jowam Coffee Traders — our mission, values, and the team driving innovation."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${COMPANY_WEBSITE}/about`} />
-
-        {/* Twitter Card */}
-        <meta name="twitter:title" content={`About Us | ${COMPANY_NAME}`} />
-        <meta
-          name="twitter:description"
-          content="Learn more about Jowam Coffee Traders — our mission, values, and the team driving innovation."
-        />
-      </Helmet>
-
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="py-24 bg-gradient-hero text-warm-cream">
@@ -166,7 +140,7 @@ export default function About() {
                   maintaining the highest quality standards.
                 </p>
                 <Button variant="secondary" size="lg" asChild>
-                  <Link to="/sustainability">
+                  <Link href="/sustainability">
                     Our Impact
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
@@ -363,7 +337,7 @@ export default function About() {
               premium Kenyan green coffee and expert guidance.
             </p>
             <Button size="lg" variant="hero" asChild>
-              <Link to="/contact">Talk to Our Trade Team</Link>
+              <Link href="/contact">Talk to Our Trade Team</Link>
             </Button>
           </div>
         </section>

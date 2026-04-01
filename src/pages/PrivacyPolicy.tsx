@@ -1,5 +1,6 @@
+"use client"
+
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
 import ReactMarkdown from "react-markdown";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -38,16 +39,6 @@ const PrivacyPolicy = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy - Jowam Coffee Traders</title>
-        <meta
-          name="description"
-          content="Read Jowam Coffee Traders' privacy policy to understand how we collect, use, and protect your personal information."
-        />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://jowamcoffee.co.ke/privacy-policy" />
-      </Helmet>
-
       <main className="min-h-screen bg-background py-12 px-4">
         <div className="container mx-auto max-w-4xl">
           <header className="text-center mb-8">

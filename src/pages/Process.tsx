@@ -14,13 +14,12 @@ import {
   Truck,
   CheckCircle,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import coffeeDrying from "@/assets/coffee-drying.jpg";
 import CustomOrders from "@/assets/jowam-bags.jpg";
 import JowamCoffee from "@/assets/jowam-coffee.jpg";
 import heroProcess from "@/assets/hero-process.jpg";
 import { processSteps, qualityStandards } from "@/data/process_and_quality";
-import { Helmet } from "react-helmet-async";
 import { PageSpecificFAQ } from "@/components/FAQ/PageSpecificFAQ";
 
 const customServices = [
@@ -35,78 +34,7 @@ const customServices = [
 export default function Process() {
   return (
     <>
-      {" "}
-      <Helmet>
-        <title>Our Process | Jowam Coffee Traders LTD</title>
-        <meta
-          name="description"
-          content="Discover Jowam Coffee Traders LTD's process — from working with Kenyan farmers to meticulous sorting, grading, and exporting premium Arabica coffee to global markets."
-        />
-        <link rel="canonical" href="https://jowamcoffee.co.ke/process" />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Our Process | Jowam Coffee Traders LTD"
-        />
-        <meta
-          property="og:description"
-          content="Follow Jowam Coffee Traders LTD's journey from farm to market — empowering farmers, ensuring quality, and exporting the finest Kenyan Arabica coffee."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://jowamcoffee.co.ke/process" />
-        <meta
-          property="og:image"
-          content="https://jowamcoffee.co.ke/images/process.jpg"
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Our Process | Jowam Coffee Traders LTD"
-        />
-        <meta
-          name="twitter:description"
-          content="From Kenyan farmers to international markets — Jowam Coffee Traders LTD ensures quality, sustainability, and excellence in every bean."
-        />
-        <meta
-          name="twitter:image"
-          content="https://jowamcoffee.co.ke/images/process.jpg"
-        />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">{`
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Our Process | Jowam Coffee Traders LTD",
-      "url": "https://jowamcoffee.co.ke/process",
-      "description": "Discover Jowam Coffee Traders LTD's process — from working with Kenyan farmers to meticulous sorting, grading, and exporting premium Arabica coffee to global markets.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Jowam Coffee Traders LTD",
-        "url": "https://jowamcoffee.co.ke",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://jowamcoffee.co.ke/logo.png"
-        }
-      },
-      "mainEntity": {
-        "@type": "ItemList",
-        "itemListElement": [
-          { "@type": "HowToStep", "name": "Sourcing & Partnerships", "text": "We work directly with Kenyan coffee farmers, providing support and ensuring fair trade." },
-          { "@type": "HowToStep", "name": "Processing & Quality Control", "text": "Cherries are hand-picked, washed, sun-dried, and carefully processed to preserve quality." },
-          { "@type": "HowToStep", "name": "Storage & Lot Preparation", "text": "Beans are meticulously sorted, graded and stored awaiting exportation." },
-          { "@type": "HowToStep", "name": "Export & Delivery", "text": "Our coffee is packed, shipped, and delivered to roasters and buyers worldwide." }
-          { "@type": "HowToStep", "name": "Logistics & Shipping", "text": "Reliable shipping from Port of Mombasa worldwide." }
-        ]
-      },
-      "image": "https://jowamcoffee.co.ke/images/process.jpg"
-    }
-  `}</script>
-      </Helmet>
-      <div className="min-h-screen">
+      {" "}      <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative py-24 text-warm-cream overflow-hidden">
           <div className="absolute inset-0 z-0">
@@ -363,7 +291,7 @@ export default function Process() {
                 </div>
 
                 <Button variant="secondary" size="lg" asChild>
-                  <Link to="/request-samples">
+                  <Link href="/request-samples">
                     Request Custom Sample
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
@@ -391,10 +319,10 @@ export default function Process() {
                 className="bg-transparent border-warm-cream text-warm-cream hover:bg-warm-cream hover:text-kenyan-green"
                 asChild
               >
-                <Link to="/request-samples">Request Process Samples</Link>
+                <Link href="/request-samples">Request Process Samples</Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/contact">Discuss Custom Requirements</Link>
+                <Link href="/contact">Discuss Custom Requirements</Link>
               </Button>
             </div>
           </div>

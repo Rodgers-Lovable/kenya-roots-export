@@ -1,37 +1,10 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import { FAQSection } from "@/components/FAQ/FAQSection";
 import { FAQJsonLD } from "@/components/FAQ/FAQJsonLD";
 
 export default function FAQs() {
   return (
-    <>
-      <Helmet>
-        <title>Frequently Asked Questions - Jowam Coffee Traders</title>
-        <meta 
-          name="description" 
-          content="Find answers to common questions about Jowam Coffee Traders' Kenyan coffee exports, sourcing, ordering, shipping, and services. Get the information you need."
-        />
-        <meta name="keywords" content="Kenyan coffee FAQ, coffee export questions, green coffee ordering, coffee sourcing Kenya, Jowam Coffee FAQ" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://jowamcoffee.co.ke/faqs" />
-        <meta property="og:title" content="Frequently Asked Questions - Jowam Coffee Traders" />
-        <meta property="og:description" content="Find answers to common questions about Jowam Coffee Traders' Kenyan coffee exports, sourcing, and services." />
-        <meta property="og:image" content="/hero-kenya-coffee.jpg" />
-
-        {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://jowamcoffee.co.ke/faqs" />
-        <meta property="twitter:title" content="Frequently Asked Questions - Jowam Coffee Traders" />
-        <meta property="twitter:description" content="Find answers to common questions about Jowam Coffee Traders' Kenyan coffee exports, sourcing, and services." />
-        <meta property="twitter:image" content="/hero-kenya-coffee.jpg" />
-
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://jowamcoffee.co.ke/faqs" />
-      </Helmet>
-      
+    <>      
       <FAQJsonLD />
 
       {/* Hero Section */}

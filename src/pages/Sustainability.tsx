@@ -11,12 +11,11 @@ import {
   TrendingUp,
   Shield,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import heroImage from "@/assets/hero-process.jpg";
 import cooperative from "@/assets/cooperative.jpg";
 import coffeeQuality from "@/assets/coffee-quality.jpg";
 import climateResilience from "@/assets/nyeri-farm.jpg";
-import { Helmet } from "react-helmet-async";
 import { COMPANY_NAME, COMPANY_WEBSITE } from "@/core/constants";
 
 const sustainabilityPillars = [
@@ -104,71 +103,7 @@ const initiatives = [
 
 export default function Sustainability() {
   return (
-    <>
-      <Helmet>
-        <title>Sustainability | Jowam Coffee Traders</title>
-        <meta
-          name="description"
-          content="Jowam Coffee Traders is committed to sustainability in Kenyan coffee exports through eco-friendly farming, fair trade, and empowering local communities."
-        />
-        <link rel="canonical" href="https://jowamcoffee.co.ke/sustainability" />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Sustainability | Jowam Coffee Traders"
-        />
-        <meta
-          property="og:description"
-          content="Discover how Jowam Coffee Traders supports sustainable Kenyan coffee exports with eco-friendly farming, fair trade, and community empowerment."
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://jowamcoffee.co.ke/sustainability"
-        />
-        <meta
-          property="og:image"
-          content="https://jowamcoffee.co.ke/images/sustainability-coffee.jpg"
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Sustainability | Jowam Coffee Traders Kenya"
-        />
-        <meta
-          name="twitter:description"
-          content="We champion sustainability in Kenyan coffee through eco-friendly farming, farmer empowerment, and fair trade practices."
-        />
-        <meta
-          name="twitter:image"
-          content="https://jowamcoffee.co.ke/images/sustainability-coffee.jpg"
-        />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">{`
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Sustainability | Jowam Coffee Traders Ltd",
-      "url": "https://jowamcoffee.co.ke/sustainability",
-      "description": "Jowam Coffee Traders is committed to sustainability in Kenyan coffee exports through eco-friendly farming, fair trade, and empowering local communities.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Jowam Coffee Traders",
-        "url": "https://jowamcoffee.co.ke",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://jowamcoffee.co.ke/logo.png"
-        }
-      },
-      "image": "https://jowamcoffee.co.ke/images/sustainability-coffee.jpg"
-    }
-  `}</script>
-      </Helmet>
-      <div className="min-h-screen">
+    <>      <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative py-32 gradient-hero text-warm-cream overflow-hidden">
           <div
@@ -411,10 +346,10 @@ export default function Sustainability() {
                 className="border-warm-cream text-warm-cream bg-transparent hover:bg-warm-cream hover:text-charcoal"
                 asChild
               >
-                <Link to="/contact">Partner with Us</Link>
+                <Link href="/contact">Partner with Us</Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/request-samples">Request Sustainable Samples</Link>
+                <Link href="/request-samples">Request Sustainable Samples</Link>
               </Button>
             </div>
           </div>

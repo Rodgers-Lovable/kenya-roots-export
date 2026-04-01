@@ -10,13 +10,12 @@ import {
   Star,
   Award,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import aaGradeCoffee from "@/assets/aa-grade-coffee.webp";
 import abGradeCoffee from "@/assets/ab-grade-coffee.webp";
 import pbGradeCoffee from "@/assets/pb-grade-coffee.jpg";
 import qualityControl from "@/assets/coffee-cherries.jpg";
 import heroOurCoffee from "@/assets/hero-our-coffee.jpg";
-import { Helmet } from "react-helmet-async";
 
 const grades = [
   {
@@ -129,78 +128,6 @@ const availabilityData = [
 export default function OurCoffee() {
   return (
     <>
-      <Helmet>
-        <title>Our Coffee | Jowam Coffee Traders LTD</title>
-        <meta
-          name="description"
-          content="Jowam Coffee Traders LTD specializes in exporting premium Kenyan Arabica coffee. From Kenya AA to specialty microlots, we deliver rich flavors, sustainable quality, and global excellence."
-        />
-        <link rel="canonical" href="https://jowamcoffee.co.ke/our-coffee" />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Our Coffee | Jowam Coffee Traders LTD"
-        />
-        <meta
-          property="og:description"
-          content="Explore Jowam Coffee Traders LTD's premium Kenyan Arabica coffee — including Kenya AA, specialty lots, and sustainably grown beans."
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://jowamcoffee.co.ke/our-coffee"
-        />
-        <meta
-          property="og:image"
-          content="https://jowamcoffee.co.ke/images/our-coffee.jpg"
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Our Coffee | Jowam Coffee Traders LTD"
-        />
-        <meta
-          name="twitter:description"
-          content="Exporting the finest Kenyan Arabica coffee — Kenya AA, specialty microlots, and sustainably grown beans."
-        />
-        <meta
-          name="twitter:image"
-          content="https://jowamcoffee.co.ke/images/our-coffee.jpg"
-        />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">{`
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Our Coffee | Jowam Coffee Traders LTD",
-      "url": "https://jowamcoffee.co.ke/our-coffee",
-      "description": "Jowam Coffee Traders LTD specializes in exporting premium Kenyan Arabica coffee. From Kenya AA to specialty microlots, we deliver rich flavors, sustainable quality, and global excellence.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Jowam Coffee Traders LTD",
-        "url": "https://jowamcoffee.co.ke",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://jowamcoffee.co.ke/logo.png"
-        }
-      },
-      "mainEntity": {
-        "@type": "ItemList",
-        "itemListElement": [
-          { "@type": "Product", "name": "Kenya AA Arabica Coffee", "description": "Bright, complex, wine-like with blackcurrant and citrus notes." },
-          { "@type": "Product", "name": "Kenya AB Coffee", "description": "Well-balanced with good body, moderate acidity, and clean finish." },
-          { "@type": "Product", "name": "Kenya Peaberry (PB) coffee", "description": "Concentrated, full-bodied with unique flavor intensity." },
-        ]
-      },
-      "image": "https://jowamcoffee.co.ke/images/our-coffee.jpg"
-    }
-  `}</script>
-      </Helmet>
-
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative py-24 text-warm-cream overflow-hidden">
@@ -226,10 +153,10 @@ export default function OurCoffee() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/request-samples">Request Samples</Link>
+                <Link href="/request-samples">Request Samples</Link>
               </Button>
               <Button size="lg" variant="hero" asChild>
-                <Link to="/catalog">Download Catalog</Link>
+                <Link href="/catalog">Download Catalog</Link>
               </Button>
             </div>
           </div>
@@ -297,7 +224,7 @@ export default function OurCoffee() {
                     </div>
 
                     <Button variant="outline" asChild>
-                      <Link to={`/request-samples?grade=${grade.grade}`}>
+                      <Link href={`/request-samples?grade=${grade.grade}`}>
                         Request {grade.grade} Samples
                       </Link>
                     </Button>
@@ -434,7 +361,7 @@ export default function OurCoffee() {
                 shipping schedules?
               </p>
               <Button variant="secondary" size="lg" asChild>
-                <Link to="/contact">
+                <Link href="/contact">
                   Contact Our Trade Team
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
@@ -537,10 +464,10 @@ export default function OurCoffee() {
                 className="border-warm-cream bg-transparent text-warm-cream hover:bg-warm-cream hover:text-kenyan-green"
                 asChild
               >
-                <Link to="/request-samples">Request Samples</Link>
+                <Link href="/request-samples">Request Samples</Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/origins">Explore Our Origins</Link>
+                <Link href="/origins">Explore Our Origins</Link>
               </Button>
             </div>
           </div>
