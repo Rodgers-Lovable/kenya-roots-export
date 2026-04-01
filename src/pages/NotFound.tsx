@@ -1,4 +1,6 @@
-import { useLocation, Link } from "react-router-dom";
+'use client'
+
+import Link from 'next/link';
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,7 +8,6 @@ import { Coffee, ArrowRight, Home, Search, MapPin, Leaf } from "lucide-react";
 import heroImage from "@/assets/coffee-cherries.jpg";
 
 const NotFound = () => {
-  const location = useLocation();
 
   useEffect(() => {
     console.error(
@@ -59,13 +60,13 @@ const NotFound = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="outline" className="text-kenyan-green" asChild>
-              <Link to="/">
+              <Link href="/">
                 <Home className="mr-2 h-5 w-5" />
                 Return to Origin
               </Link>
             </Button>
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/our-coffee">
+              <Link href="/our-coffee">
                 <Search className="mr-2 h-5 w-5" />
                 Browse Our Lots
               </Link>
@@ -117,7 +118,7 @@ const NotFound = () => {
             {suggestions.map((suggestion, index) => (
               <Card key={index} className="hover:shadow-lg transition-all duration-300 group cursor-pointer">
                 <CardContent className="p-8">
-                  <Link to={suggestion.href} className="flex items-center justify-between">
+                  <Link href={suggestion.href} className="flex items-center justify-between">
                     <div className="flex items-center space-x-4">
                       <div className="w-12 h-12 bg-kenyan-green rounded-lg flex items-center justify-center group-hover:bg-coffee-brown transition-colors">
                         <suggestion.icon className="h-6 w-6 text-white" />
