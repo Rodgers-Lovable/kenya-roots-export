@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FAQSection } from "./FAQSection";
 
@@ -27,7 +27,7 @@ export function PageSpecificFAQ({
         {/* Link to full FAQ page */}
         <div className="text-center pb-16">
           <Link 
-            to="/faqs"
+            href="/faqs"
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors group"
           >
             See all FAQs
