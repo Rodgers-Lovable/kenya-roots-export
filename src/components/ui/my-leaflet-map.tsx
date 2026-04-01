@@ -1,9 +1,7 @@
 'use client'
 
-import { useRef, useEffect } from "react"
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
-import type { Map } from "leaflet"
-import "leaflet/dist/leaflet.css"
+import { useEffect, useRef } from 'react'
+import 'leaflet/dist/leaflet.css'
 
 const locations = [
   { lat: -0.47295002409858633, lng: 37.3331004850023, name: "Kirinyaga" },
@@ -15,9 +13,28 @@ const locations = [
 ]
 
 function MyLeafletMap() {
-  const mapRef = useRef<Map | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<any>(null)
 
   useEffect(() => {
+    if (!containerRef.current || mapRef.current) return
+
+    import('leaflet').then((L) => {
+      if (!containerRef.current || mapRef.current) return
+
+      const map = L.map(containerRef.current).setView([-1.286389, 36.817223], 6)
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+      }).addTo(map)
+
+      locations.forEach((loc) => {
+        L.marker([loc.lat, loc.lng]).addTo(map).bindPopup(loc.name)
+      })
+
+      mapRef.current = map
+    })
+
     return () => {
       if (mapRef.current) {
         mapRef.current.remove()
@@ -26,21 +43,7 @@ function MyLeafletMap() {
     }
   }, [])
 
-  return (
-    <MapContainer
-      center={[-1.286389, 36.817223]}
-      zoom={6}
-      style={{ height: "500px", width: "100%" }}
-      ref={mapRef}
-    >
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {locations.map((loc, i) => (
-        <Marker key={i} position={[loc.lat, loc.lng]}>
-          <Popup>{loc.name}</Popup>
-        </Marker>
-      ))}
-    </MapContainer>
-  )
+  return <div ref={containerRef} style={{ height: '500px', width: '100%' }} />
 }
 
 export default MyLeafletMap
