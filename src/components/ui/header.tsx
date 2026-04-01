@@ -1,5 +1,8 @@
+'use client'
+
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Coffee } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -10,7 +13,7 @@ import { navigation } from "@/data/menu_items";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -19,7 +22,7 @@ export function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5 flex items-center space-x-2">
+          <Link href="/" className="-m-1.5 p-1.5 flex items-center space-x-2">
             <img height={5} width={40} src={Logo} alt="Jowam coffee traders" />
             <span className="font-playfair text-xl font-bold text-coffee-brown">
               { COMPANY_NAME }
@@ -42,10 +45,10 @@ export function Header() {
           {navigation.main.map((item) => (
             <Link
               key={item.name}
-              to={item.href}
+              href={item.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-coffee-brown",
-                location.pathname === item.href
+                pathname === item.href
                   ? "text-coffee-brown"
                   : "text-neutral-600"
               )}
@@ -57,7 +60,7 @@ export function Header() {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Button variant="default" asChild>
-            <Link to="/request-samples">Request Samples</Link>
+            <Link href="/request-samples">Request Samples</Link>
           </Button>
         </div>
       </nav>
@@ -78,7 +81,7 @@ export function Header() {
               {/* Header with close button */}
               <div className="flex items-center justify-between p-6 border-b border-warm-cream/20">
                 <Link
-                  to="/"
+                  href="/"
                   className="flex items-center space-x-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -108,10 +111,10 @@ export function Header() {
                   {navigation.main.map((item, index) => (
                     <Link
                       key={item.name}
-                      to={item.href}
+                      href={item.href}
                       className={cn(
                         "block py-4 px-4 text-lg font-medium rounded-lg transition-all duration-200 animate-fade-in",
-                        location.pathname === item.href
+                        pathname === item.href
                           ? "text-coffee-brown bg-warm-cream shadow-lg"
                           : "text-warm-cream hover:bg-warm-cream/10 hover:translate-x-2"
                       )}
@@ -132,7 +135,7 @@ export function Header() {
                     asChild
                   >
                     <Link
-                      to="/request-samples"
+                      href="/request-samples"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Request Samples

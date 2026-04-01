@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+'use client'
+
+import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Logo from "@/assets/logo.png";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
@@ -21,7 +23,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <Link to="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2">
               <img
                 height={5}
                 width={40}
@@ -75,7 +77,7 @@ export function Footer() {
                   {navigation.main.map((item) => (
                     <li key={item.name}>
                       <Link
-                        to={item.href}
+                        href={item.href}
                         className="text-sm leading-6 text-neutral-300 hover:text-warm-cream transition-colors"
                       >
                         {item.name}
@@ -92,7 +94,7 @@ export function Footer() {
                   {navigation.resources.map((item) => (
                     <li key={item.name}>
                       <Link
-                        to={item.href}
+                        href={item.href}
                         className="text-sm leading-6 text-neutral-300 hover:text-warm-cream transition-colors"
                       >
                         {item.name}
@@ -122,7 +124,7 @@ export function Footer() {
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
                       <Link
-                        to={item.href}
+                        href={item.href}
                         className="text-sm leading-6 text-neutral-300 hover:text-warm-cream transition-colors"
                       >
                         {item.name}
