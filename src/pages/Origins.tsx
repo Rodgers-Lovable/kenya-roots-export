@@ -16,7 +16,14 @@ import coffeeCherry from "@/assets/coffee-cherries.jpg";
 import coffeeDrying from "@/assets/coffee-drying.jpg";
 import qualityControl from "@/assets/quality-control.jpg";
 import { regions } from "@/data/origins";
-import MyLeafletMap from "@/components/ui/my-leaflet-map";
+import dynamic from "next/dynamic";
+
+const MyLeafletMap = dynamic(() => import("@/components/ui/my-leaflet-map"), {
+  ssr: false,
+  loading: () => (
+    <div style={{ height: "500px" }} className="animate-pulse bg-neutral-200 rounded" />
+  ),
+});
 
 const whyOriginMatters = [
   {
