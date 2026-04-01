@@ -74,7 +74,7 @@ export const sendContactEmail = async (
       subject: formData.subject,
       message: formData.message,
       form_type: "General Request",
-      to_email: "trading@jowamcoffee.com",
+      to_email: "inquiries@jowamcoffee.com",
     };
 
     const result = await emailjs.send(
@@ -125,7 +125,7 @@ export const sendSampleRequestEmail = async (
       follow_up_consent: formData.followUpConsent ? "Yes" : "No",
 
       form_type: "Sample Request",
-      to_email: "trading@jowamcoffee.com",
+      to_email: "inquiries@jowamcoffee.com",
     };
 
     const result = await emailjs.send(
