@@ -1,8 +1,9 @@
 'use client'
 
-// MyLeafletMap.tsx
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import { useRef, useEffect } from "react"
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
+import type { Map } from "leaflet"
+import "leaflet/dist/leaflet.css"
 
 const locations = [
   { lat: -0.47295002409858633, lng: 37.3331004850023, name: "Kirinyaga" },
@@ -11,14 +12,26 @@ const locations = [
   { lat: -0.7520007910420895, lng: 36.978675615749246, name: "Murang'a" },
   { lat: 0.7635169020124454, lng: 34.654347063039886, name: "Bungoma" },
   { lat: -0.0627669570519228, lng: 37.66436338870156, name: "Meru" },
-];
+]
 
 function MyLeafletMap() {
+  const mapRef = useRef<Map | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove()
+        mapRef.current = null
+      }
+    }
+  }, [])
+
   return (
     <MapContainer
-      center={[-1.286389, 36.817223]} // ✅ tuple [lat, lng]
+      center={[-1.286389, 36.817223]}
       zoom={6}
       style={{ height: "500px", width: "100%" }}
+      ref={mapRef}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {locations.map((loc, i) => (
@@ -27,7 +40,7 @@ function MyLeafletMap() {
         </Marker>
       ))}
     </MapContainer>
-  );
+  )
 }
 
-export default MyLeafletMap;
+export default MyLeafletMap
