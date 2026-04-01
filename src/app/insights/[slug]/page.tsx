@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { supabase } from '@/integrations/supabase/client'
+import { createSupabaseServerClient } from '@/integrations/supabase/server'
 import ArticleDetail from '@/views/ArticleDetail'
 
 export async function generateMetadata({
@@ -8,6 +8,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
+  const supabase = await createSupabaseServerClient()
 
   const { data } = await supabase
     .from('articles')
@@ -20,13 +21,15 @@ export async function generateMetadata({
     return { title: 'Article Not Found - Jowam Coffee Traders' }
   }
 
+  const article = data as { title: string; excerpt: string | null }
+
   return {
-    title: `${data.title} | Jowam Coffee Insights`,
-    description: data.excerpt || data.title,
+    title: `${article.title} | Jowam Coffee Insights`,
+    description: article.excerpt || article.title,
     alternates: { canonical: `/insights/${slug}` },
     openGraph: {
-      title: `${data.title} | Jowam Coffee Insights`,
-      description: data.excerpt || data.title,
+      title: `${article.title} | Jowam Coffee Insights`,
+      description: article.excerpt || article.title,
     },
   }
 }
