@@ -1,5 +1,7 @@
+'use client'
+
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -376,12 +378,12 @@ export default function Insights() {
             <p className="text-xl text-muted-foreground mb-8">
               Our team of coffee specialists is here to help with your specific questions
             </p>
-            <Link to="/contact">
+            <Link href="/contact">
               <Button size="lg" className="mr-4">
                 Contact Our Experts
               </Button>
             </Link>
-            <Link to="/request-samples">
+            <Link href="/request-samples">
               <Button variant="outline" size="lg">
                 Request Samples
               </Button>

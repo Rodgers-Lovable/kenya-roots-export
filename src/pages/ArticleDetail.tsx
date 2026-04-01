@@ -1,5 +1,9 @@
+'use client'
+
 import React, { useState, useEffect } from 'react'
-import { useParams, Link, Navigate } from 'react-router-dom'
+import { useParams } from 'next/navigation'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -22,7 +26,8 @@ interface Article {
 }
 
 export default function ArticleDetail() {
-  const { slug } = useParams<{ slug: string }>()
+  const params = useParams()
+  const slug = params?.slug as string
   const [article, setArticle] = useState<Article | null>(null)
   const [loading, setLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
@@ -49,21 +54,7 @@ export default function ArticleDetail() {
         setNotFound(true)
       } else {
         setArticle(data)
-        // Track article view
         trackArticleView(data.slug, data.title)
-        // Update page title and meta description for SEO
-        document.title = `${data.title} | Jowam Coffee Insights`
-        
-        // Update meta description
-        const metaDescription = document.querySelector('meta[name="description"]')
-        if (metaDescription) {
-          metaDescription.setAttribute('content', data.excerpt || data.title)
-        } else {
-          const meta = document.createElement('meta')
-          meta.name = 'description'
-          meta.content = data.excerpt || data.title
-          document.head.appendChild(meta)
-        }
       }
     } catch (error) {
       console.error('Error fetching article:', error)
@@ -133,7 +124,8 @@ export default function ArticleDetail() {
   }
 
   if (notFound || !article) {
-    return <Navigate to="/404" replace />
+    router.push('/404')
+    return null
   }
 
   return (
@@ -142,7 +134,7 @@ export default function ArticleDetail() {
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/insights">
+            <Link href="/insights">
               <Button variant="ghost" className="gap-2">
                 <ArrowLeft className="h-4 w-4" />
                 Back to Insights
@@ -237,12 +229,12 @@ export default function ArticleDetail() {
               Discover more articles about Kenya's coffee industry
             </p>
             <div className="flex gap-4 justify-center">
-              <Link to="/insights">
+              <Link href="/insights">
                 <Button size="lg">
                   View All Articles
                 </Button>
               </Link>
-              <Link to="/contact">
+              <Link href="/contact">
                 <Button variant="outline" size="lg">
                   Contact Our Experts
                 </Button>

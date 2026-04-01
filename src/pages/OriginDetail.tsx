@@ -1,4 +1,7 @@
-import { useParams, useNavigate, Link } from "react-router-dom";
+'use client'
+
+import { useRouter, useParams } from 'next/navigation'
+import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -11,30 +14,16 @@ import {
   Droplets,
   ArrowRight,
 } from "lucide-react";
-import { useEffect } from "react";
 import { regions } from "@/data/origins";
 
 
 export default function OriginDetail() {
-  const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
+  const params = useParams();
+  const slug = params?.slug as string;
+  const router = useRouter();
 
   const region = regions.find((r) => r.slug === slug);
 
-  useEffect(() => {
-    if (region) {
-      document.title = `${region.name} Coffee Region - Jowam Coffee Traders`;
-      const metaDescription = document.querySelector(
-        'meta[name="description"]'
-      );
-      if (metaDescription) {
-        metaDescription.setAttribute(
-          "content",
-          `Discover ${region.name} coffee region in Kenya. ${region.description}. Learn about altitude, harvest seasons, varietals, and unique cup profile characteristics.`
-        );
-      }
-    }
-  }, [region]);
 
   if (!region) {
     return (
@@ -49,12 +38,12 @@ export default function OriginDetail() {
             moved.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="outline" onClick={() => navigate("/origins")}>
+            <Button variant="outline" onClick={() => router.push("/origins")}>
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Origins
             </Button>
             <Button asChild>
-              <Link to="/">Go Home</Link>
+              <Link href="/">Go Home</Link>
             </Button>
           </div>
         </div>
@@ -75,7 +64,7 @@ export default function OriginDetail() {
             <Button
               variant="ghost"
               className="text-warm-cream hover:bg-warm-cream/10 hover:text-warm-cream"
-              onClick={() => navigate("/origins")}
+              onClick={() => router.push("/origins")}
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to All Origins
@@ -278,10 +267,10 @@ export default function OriginDetail() {
                 className="border-warm-cream text-warm-cream bg-transparent hover:bg-warm-cream hover:text-kenyan-green"
                 asChild
               >
-                <Link to="/request-samples">Request Samples</Link>
+                <Link href="/request-samples">Request Samples</Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/contact">
+                <Link href="/contact">
                   Contact Us
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
