@@ -56,7 +56,7 @@ export default function ArticleDetail() {
       if (!data) {
         setNotFound(true)
       } else {
-        setArticle(data)
+        setArticle(data as unknown as Article)
         trackArticleView(data.slug, data.title)
       }
     } catch (error) {
