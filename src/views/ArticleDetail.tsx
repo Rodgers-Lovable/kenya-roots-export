@@ -18,6 +18,8 @@ interface Article {
   excerpt: string
   content: string
   cover_image: string
+  cover_image_credit: string | null
+  cover_image_credit_url: string | null
   category: string
   tags: string[]
   author: string
@@ -152,12 +154,28 @@ export default function ArticleDetail() {
       {/* Article Content */}
       <article className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Cover Image */}
-        <div className="aspect-video w-full overflow-hidden rounded-lg mb-8">
-          <img 
-            src={article.cover_image || '/api/placeholder/800/450'} 
-            alt={article.title}
-            className="w-full h-full object-cover"
-          />
+        <div className="mb-8">
+          <div className="aspect-video w-full overflow-hidden rounded-lg">
+            <img
+              src={article.cover_image || '/api/placeholder/800/450'}
+              alt={article.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {article.cover_image_credit && (
+            <p className="text-xs text-muted-foreground mt-1 text-right">
+              Photo by{' '}
+              <a
+                href={article.cover_image_credit_url ?? undefined}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-foreground"
+              >
+                {article.cover_image_credit}
+              </a>
+              {' '}on Unsplash
+            </p>
+          )}
         </div>
 
         {/* Article Header */}
