@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import faqsData from "@/data/faqs.json";
 
 interface FAQ {
@@ -13,28 +12,27 @@ interface FAQJsonLDProps {
 }
 
 export function FAQJsonLD({ categories }: FAQJsonLDProps) {
-  const faqs = categories 
+  const faqs = categories
     ? (faqsData as FAQ[]).filter(faq => categories.includes(faq.category))
     : faqsData as FAQ[];
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    mainEntity: faqs.map(faq => ({
       "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
+      name: faq.question,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
+        text: faq.answer,
+      },
+    })),
   };
 
   return (
-    <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
-      </script>
-    </Helmet>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
   );
 }
