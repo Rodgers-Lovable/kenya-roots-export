@@ -55,10 +55,10 @@ export function EmailJSSetupInstructions() {
             Add these environment variables to your project:
           </p>
           <div className="bg-neutral-100 p-3 rounded text-xs font-mono">
-            <div>VITE_EMAILJS_SERVICE_ID=your_service_id</div>
-            <div>VITE_EMAILJS_TEMPLATE_ID_CONTACT=your_contact_template</div>
-            <div>VITE_EMAILJS_TEMPLATE_ID_SAMPLES=your_samples_template</div>
-            <div>VITE_EMAILJS_PUBLIC_KEY=your_public_key</div>
+            <div>NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id</div>
+            <div>NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID=your_contact_template</div>
+            <div>NEXT_PUBLIC_EMAILJS_SAMPLE_TEMPLATE_ID=your_samples_template</div>
+            <div>NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key</div>
           </div>
         </div>
 
