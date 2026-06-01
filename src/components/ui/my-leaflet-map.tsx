@@ -22,6 +22,13 @@ function MyLeafletMap() {
     import('leaflet').then((L) => {
       if (!containerRef.current || mapRef.current) return
 
+      delete (L.Icon.Default.prototype as any)._getIconUrl
+      L.Icon.Default.mergeOptions({
+        iconUrl: '/marker-icon.png',
+        iconRetinaUrl: '/marker-icon-2x.png',
+        shadowUrl: '/marker-shadow.png',
+      })
+
       const map = L.map(containerRef.current).setView([-1.286389, 36.817223], 6)
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
