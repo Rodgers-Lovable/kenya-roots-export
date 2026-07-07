@@ -6,7 +6,12 @@ export const metadata: Metadata = {
   description:
     'Discover how Jowam Coffee Traders promotes sustainable farming, supports Kenyan farmers, and maintains eco-friendly export practices.',
   alternates: { canonical: '/sustainability' },
-  openGraph: { title: 'Sustainability - Jowam Coffee Traders', url: 'https://jowamcoffee.co.ke/sustainability' },
+  openGraph: {
+    title: 'Sustainability - Jowam Coffee Traders',
+    description: 'Discover how Jowam Coffee Traders promotes sustainable farming, supports Kenyan farmers, and maintains eco-friendly export practices.',
+    url: 'https://jowamcoffee.co.ke/sustainability',
+    images: [{ url: '/hero-kenya-coffee.jpg', width: 1200, height: 630 }],
+  },
 }
 
 export default Sustainability

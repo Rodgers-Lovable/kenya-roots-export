@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -284,10 +285,12 @@ export default function Catalog() {
                 {microlots.map((item) => (
                   <Card key={item.id} className="overflow-hidden border-coffee-gold/20 hover:shadow-lg transition-shadow">
                     <div className="aspect-video overflow-hidden relative">
-                      <img 
-                        src={item.image_url || cupping.src} 
+                      <Image
+                        src={item.image_url || cupping}
                         alt={item.name}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover"
                       />
                       <div className="absolute top-4 left-4">
                         <Badge className="bg-coffee-gold text-charcoal font-semibold">
@@ -369,11 +372,13 @@ export default function Catalog() {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {regularCoffees.map((item) => (
                   <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="aspect-video overflow-hidden">
-                      <img 
-                        src={item.image_url || coffeeBeansImage.src} 
+                    <div className="aspect-video overflow-hidden relative">
+                      <Image
+                        src={item.image_url || coffeeBeansImage}
                         alt={item.name}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover"
                       />
                     </div>
                     <CardHeader>

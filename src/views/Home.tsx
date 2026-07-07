@@ -1,5 +1,3 @@
-"use client"
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,7 +17,7 @@ import heroImage from "@/assets/hero-kenya-coffee.jpg";
 import coffeeCherry from "@/assets/coffee-cherries.jpg";
 import qualityControl from "@/assets/quality-control.jpg";
 import { regions } from "@/data/origins";
-import { useUmamiAnalytics } from "@/hooks/useUmamiAnalytics";
+import { HeroCTAButtons } from "@/components/home/HeroCTAButtons";
 
 const valueProps = [
   {
@@ -70,7 +68,6 @@ const coffeeGrades = [
 
 export default function Home() {
   const featuredRegions = regions.filter((region) => region.featured);
-  const { trackCTAClick } = useUmamiAnalytics();
 
   return (
     <>
@@ -93,24 +90,7 @@ export default function Home() {
                 Premium, traceable green coffee connecting Kenyan farmers with
                 specialty roasters worldwide
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" asChild onClick={() => trackCTAClick('explore_coffee', 'hero')}>
-                  <Link href="/our-coffee">
-                    Explore Our Coffee
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-warm-cream text-warm-cream bg-transparent hover:bg-warm-cream hover:text-charcoal"
-                  asChild
-                  onClick={() => trackCTAClick('request_samples', 'hero')}
-                >
-                  <Link href="/request-samples">Request Samples</Link>
-                </Button>
-              </div>
+              <HeroCTAButtons />
             </div>
           </div>
         </section>

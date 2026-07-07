@@ -131,8 +131,30 @@ export default function ArticleDetail() {
     return null
   }
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt,
+    image: article.cover_image,
+    author: { '@type': 'Person', name: article.author },
+    datePublished: article.published_at,
+    dateModified: article.created_at,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Jowam Coffee Traders LTD',
+      url: 'https://jowamcoffee.co.ke',
+      logo: { '@type': 'ImageObject', url: 'https://jowamcoffee.co.ke/logo.png' },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://jowamcoffee.co.ke/insights/${article.slug}` },
+  }
+
   return (
     <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* Header */}
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">

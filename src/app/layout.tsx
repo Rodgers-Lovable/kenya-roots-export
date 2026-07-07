@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       'Licensed Kenyan green coffee exporters providing premium arabica coffee in AA, AB, and PB grades to specialty roasters worldwide.',
     type: 'website',
     url: 'https://jowamcoffee.co.ke',
-    images: [{ url: '/hero-kenya-coffee.jpg' }],
+    images: [{ url: '/hero-kenya-coffee.jpg', width: 1200, height: 630, alt: 'Kenyan coffee farm' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -58,7 +58,7 @@ const structuredData = {
   logo: 'https://jowamcoffee.co.ke/logo.png',
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+254-123-456-789',
+    telephone: '+254-722-762-945',
     contactType: 'sales',
     email: 'info@jowamcoffee.co.ke',
     availableLanguage: 'English',

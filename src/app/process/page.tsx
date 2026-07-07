@@ -6,7 +6,12 @@ export const metadata: Metadata = {
   description:
     'Learn about Jowam Coffee Traders\' rigorous coffee processing and quality assurance process from farm to export.',
   alternates: { canonical: '/process' },
-  openGraph: { title: 'Our Process - Jowam Coffee Traders', url: 'https://jowamcoffee.co.ke/process' },
+  openGraph: {
+    title: 'Our Process - Jowam Coffee Traders',
+    description: "Learn about Jowam Coffee Traders' rigorous coffee processing and quality assurance process from farm to export.",
+    url: 'https://jowamcoffee.co.ke/process',
+    images: [{ url: '/hero-kenya-coffee.jpg', width: 1200, height: 630 }],
+  },
 }
 
 export default Process

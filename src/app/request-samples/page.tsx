@@ -8,7 +8,9 @@ export const metadata: Metadata = {
   alternates: { canonical: '/request-samples' },
   openGraph: {
     title: 'Request Coffee Samples - Jowam Coffee Traders',
+    description: 'Request free green coffee samples from Jowam Coffee Traders. Experience the quality of Kenyan specialty coffee before placing your order.',
     url: 'https://jowamcoffee.co.ke/request-samples',
+    images: [{ url: '/hero-kenya-coffee.jpg', width: 1200, height: 630 }],
   },
 }
 

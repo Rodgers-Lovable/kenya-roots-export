@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Coffee } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Logo from "@/assets/logo.png";
 import { COMPANY_NAME } from "@/core/constants";
 import { navigation } from "@/data/menu_items";
@@ -23,7 +24,7 @@ export function Header() {
       >
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 flex items-center space-x-2">
-            <img height={5} width={40} src={Logo.src} alt="Jowam coffee traders" />
+            <Image height={40} width={40} src={Logo} alt="Jowam coffee traders" />
             <span className="font-playfair text-xl font-bold text-coffee-brown">
               { COMPANY_NAME }
             </span>
