@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -148,10 +149,13 @@ export default function Contact() {
         {/* Hero Section */}
         <section className="relative py-24 text-warm-cream overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img
-              src={heroContact.src}
+            <Image
+              src={heroContact}
               alt="Professional coffee trading office"
-              className="w-full h-full object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-charcoal/60"></div>
           </div>

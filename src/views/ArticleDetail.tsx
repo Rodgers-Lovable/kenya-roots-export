@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'next/navigation'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
@@ -36,13 +37,7 @@ export default function ArticleDetail() {
   const [notFound, setNotFound] = useState(false)
   const { trackArticleView } = useUmamiAnalytics()
 
-  useEffect(() => {
-    if (slug) {
-      fetchArticle(slug)
-    }
-  }, [slug])
-
-  const fetchArticle = async (articleSlug: string) => {
+  const fetchArticle = useCallback(async (articleSlug: string) => {
     try {
       const { data, error } = await supabase
         .from('articles')
@@ -65,7 +60,13 @@ export default function ArticleDetail() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [trackArticleView])
+
+  useEffect(() => {
+    if (slug) {
+      fetchArticle(slug)
+    }
+  }, [fetchArticle, slug])
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -177,11 +178,13 @@ export default function ArticleDetail() {
       <article className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Cover Image */}
         <div className="mb-8">
-          <div className="aspect-video w-full overflow-hidden rounded-lg">
-            <img
-              src={article.cover_image || '/api/placeholder/800/450'}
+          <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+            <Image
+              src={article.cover_image || '/placeholder.svg'}
               alt={article.title}
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="object-cover"
             />
           </div>
           {article.cover_image_credit && (

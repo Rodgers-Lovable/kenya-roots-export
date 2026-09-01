@@ -11,6 +11,7 @@ import {
   Award,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import aaGradeCoffee from "@/assets/aa-grade-coffee.webp";
 import abGradeCoffee from "@/assets/ab-grade-coffee.webp";
 import pbGradeCoffee from "@/assets/pb-grade-coffee.jpg";
@@ -132,10 +133,13 @@ export default function OurCoffee() {
         {/* Hero Section */}
         <section className="relative py-24 text-warm-cream overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img
-              src={heroOurCoffee.src}
+            <Image
+              src={heroOurCoffee}
               alt="Coffee quality control and grading"
-              className="w-full h-full object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-charcoal/60"></div>
           </div>
@@ -231,8 +235,8 @@ export default function OurCoffee() {
                   </div>
 
                   <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                    <img
-                      src={typeof grade.image === 'string' ? grade.image : grade.image.src}
+                    <Image
+                      src={grade.image}
                       alt={`Grade ${grade.grade} coffee beans`}
                       className="rounded-lg shadow-xl w-full"
                     />
@@ -427,8 +431,8 @@ export default function OurCoffee() {
               </div>
 
               <div className="relative">
-                <img
-                  src={qualityControl.src}
+                <Image
+                  src={qualityControl}
                   alt="Coffee quality control and cupping"
                   className="rounded-lg shadow-2xl"
                 />

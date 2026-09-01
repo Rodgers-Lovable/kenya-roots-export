@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
@@ -41,7 +41,6 @@ interface CatalogItem {
 
 export default function Catalog() {
   const [catalogItems, setCatalogItems] = useState<CatalogItem[]>([])
-  const [filteredItems, setFilteredItems] = useState<CatalogItem[]>([])
   const [regions, setRegions] = useState<string[]>([])
   const [grades, setGrades] = useState<string[]>([])
   const [processingMethods, setProcessingMethods] = useState<string[]>([])
@@ -55,10 +54,6 @@ export default function Catalog() {
   useEffect(() => {
     fetchCatalogItems()
   }, [])
-
-  useEffect(() => {
-    filterItems()
-  }, [catalogItems, searchTerm, selectedRegion, selectedGrade, selectedProcessing])
 
   const fetchCatalogItems = async () => {
     try {
@@ -88,7 +83,7 @@ export default function Catalog() {
     }
   }
 
-  const filterItems = () => {
+  const filteredItems = useMemo(() => {
     let filtered = catalogItems
 
     // Filter by search term
@@ -115,8 +110,8 @@ export default function Catalog() {
       filtered = filtered.filter(item => item.processing_method === selectedProcessing)
     }
 
-    setFilteredItems(filtered)
-  }
+    return filtered
+  }, [catalogItems, searchTerm, selectedRegion, selectedGrade, selectedProcessing])
 
   const microlots = filteredItems.filter(item => item.is_microlot)
   const regularCoffees = filteredItems.filter(item => !item.is_microlot)
@@ -161,7 +156,7 @@ export default function Catalog() {
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${heroImage.src})` }}
         />
         <div className="absolute inset-0 bg-charcoal/70" />
         <div className="container mx-auto px-4 relative z-10">

@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter, useParams } from 'next/navigation'
+import Image from "next/image";
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -117,8 +118,8 @@ export default function OriginDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Region Image */}
             <div className="order-2 lg:order-1">
-              <img
-                src={typeof region.image === 'string' ? region.image : region.image.src}
+              <Image
+                src={region.image}
                 alt={`${region.name} coffee region landscape`}
                 className="w-full h-[400px] object-cover rounded-lg shadow-lg"
               />

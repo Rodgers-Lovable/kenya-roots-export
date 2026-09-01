@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -54,19 +54,7 @@ export default function ArticleForm() {
     'climate', 'brewing', 'supply chain', 'social impact'
   ]
 
-  useEffect(() => {
-    if (isEditing) {
-      fetchArticle()
-    }
-  }, [id, isEditing])
-
-  useEffect(() => {
-    if (formData.title && !isEditing) {
-      generateSlug()
-    }
-  }, [formData.title])
-
-  const fetchArticle = async () => {
+  const fetchArticle = useCallback(async () => {
     try {
       const { data, error } = await supabase
         .from('articles')
@@ -98,15 +86,26 @@ export default function ArticleForm() {
     } finally {
       setInitialLoading(false)
     }
-  }
+  }, [id, router, toast])
 
-  const generateSlug = () => {
+  useEffect(() => {
+    if (isEditing) {
+      fetchArticle()
+    }
+  }, [fetchArticle, isEditing])
+
+  useEffect(() => {
+    if (!formData.title || isEditing) {
+      return
+    }
+
     const slug = formData.title
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '')
-    setFormData(prev => ({ ...prev, slug }))
-  }
+
+    setFormData(prev => (prev.slug === slug ? prev : { ...prev, slug }))
+  }, [formData.title, isEditing])
 
   const handleInputChange = (field: keyof ArticleFormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))

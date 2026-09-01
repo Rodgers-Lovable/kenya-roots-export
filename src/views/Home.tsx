@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -76,7 +77,7 @@ export default function Home() {
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroImage})` }}
+            style={{ backgroundImage: `url(${heroImage.src})` }}
           />
           <div className="absolute inset-0 gradient-hero" />
 
@@ -146,10 +147,10 @@ export default function Home() {
                   className="overflow-hidden hover:shadow-xl transition-all duration-300 group"
                 >
                   <div className="aspect-w-16 aspect-h-9 overflow-hidden">
-                    <img
-                      src={typeof origin.image === 'string' ? origin.image : origin.image.src}
+                    <Image
+                      src={origin.image}
                       alt={`${origin.name} coffee region`}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <CardContent className="p-6">
@@ -237,8 +238,8 @@ export default function Home() {
               </div>
 
               <div className="relative">
-                <img
-                  src={qualityControl.src}
+                <Image
+                  src={qualityControl}
                   alt="Coffee quality control and grading"
                   className="rounded-lg shadow-2xl"
                 />
@@ -261,8 +262,8 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="relative">
-                <img
-                  src={coffeeCherry.src}
+                <Image
+                  src={coffeeCherry}
                   alt="Coffee traceability from farm to export"
                   className="rounded-lg shadow-2xl"
                 />

@@ -15,6 +15,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import coffeeDrying from "@/assets/coffee-drying.jpg";
 import CustomOrders from "@/assets/jowam-bags.jpg";
 import JowamCoffee from "@/assets/jowam-coffee.jpg";
@@ -38,10 +39,13 @@ export default function Process() {
         {/* Hero Section */}
         <section className="relative py-24 text-warm-cream overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img
-              src={heroProcess.src}
+            <Image
+              src={heroProcess}
               alt="Coffee processing from farm to export"
-              className="w-full h-full object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-charcoal/60"></div>
           </div>
@@ -125,8 +129,8 @@ export default function Process() {
                   </div>
 
                   <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                    <img
-                      src={typeof step.image === 'string' ? step.image : step.image.src}
+                    <Image
+                      src={step.image}
                       alt={step.title}
                       className="rounded-lg shadow-xl w-full"
                     />
@@ -234,8 +238,8 @@ export default function Process() {
               </div>
 
               <div className="relative">
-                <img
-                  src={JowamCoffee.src}
+                <Image
+                  src={JowamCoffee}
                   alt="Coffee traceability and documentation"
                   className="rounded-lg shadow-2xl"
                 />
@@ -258,8 +262,8 @@ export default function Process() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="relative">
-                <img
-                  src={CustomOrders.src}
+                <Image
+                  src={CustomOrders}
                   alt="Custom coffee processing"
                   className="rounded-lg shadow-xl"
                 />

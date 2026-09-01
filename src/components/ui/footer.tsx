@@ -1,6 +1,7 @@
 'use client'
 
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Logo from "@/assets/logo.png";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
@@ -24,10 +25,10 @@ export function Footer() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <Link href="/" className="flex items-center space-x-2">
-              <img
-                height={5}
+              <Image
+                height={40}
                 width={40}
-                src={Logo.src}
+                src={Logo}
                 alt="Jowam coffee traders"
               />
               <span className="font-playfair text-xl font-bold text-warm-cream">

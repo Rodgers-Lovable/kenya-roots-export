@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -49,7 +49,6 @@ interface Article {
 
 export default function ArticlesList() {
   const [articles, setArticles] = useState<Article[]>([])
-  const [filteredArticles, setFilteredArticles] = useState<Article[]>([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
@@ -57,15 +56,7 @@ export default function ArticlesList() {
   const [categories, setCategories] = useState<string[]>([])
   const { toast } = useToast()
 
-  useEffect(() => {
-    fetchArticles()
-  }, [])
-
-  useEffect(() => {
-    filterArticles()
-  }, [articles, searchTerm, statusFilter, categoryFilter])
-
-  const fetchArticles = async () => {
+  const fetchArticles = useCallback(async () => {
     try {
       const { data, error } = await supabase
         .from('articles')
@@ -89,9 +80,13 @@ export default function ArticlesList() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [toast])
 
-  const filterArticles = () => {
+  useEffect(() => {
+    fetchArticles()
+  }, [fetchArticles])
+
+  const filteredArticles = useMemo(() => {
     let filtered = articles
 
     if (searchTerm) {
@@ -109,8 +104,8 @@ export default function ArticlesList() {
       filtered = filtered.filter(article => article.category === categoryFilter)
     }
 
-    setFilteredArticles(filtered)
-  }
+    return filtered
+  }, [articles, searchTerm, statusFilter, categoryFilter])
 
   const handleDelete = async (id: string, title: string) => {
     if (!confirm(`Are you sure you want to delete "${title}"? This action cannot be undone.`)) {
@@ -125,7 +120,7 @@ export default function ArticlesList() {
 
       if (error) throw error
 
-      setArticles(articles.filter(article => article.id !== id))
+      setArticles(prev => prev.filter(article => article.id !== id))
       toast({
         title: "Success",
         description: "Article deleted successfully",
@@ -154,7 +149,7 @@ export default function ArticlesList() {
 
       if (error) throw error
 
-      setArticles(articles.map(article => 
+      setArticles(prev => prev.map(article => 
         article.id === id 
           ? { ...article, status: newStatus, published_at: newStatus === 'published' ? new Date().toISOString() : article.published_at }
           : article

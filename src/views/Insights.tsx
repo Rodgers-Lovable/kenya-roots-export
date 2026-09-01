@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -27,7 +28,6 @@ interface Article {
 
 export default function Insights() {
   const [articles, setArticles] = useState<Article[]>([])
-  const [filteredArticles, setFilteredArticles] = useState<Article[]>([])
   const [categories, setCategories] = useState<string[]>([])
   const [tags, setTags] = useState<string[]>([])
   const [loading, setLoading] = useState(true)
@@ -35,17 +35,12 @@ export default function Insights() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [selectedTag, setSelectedTag] = useState<string>('all')
   const [currentPage, setCurrentPage] = useState(1)
-  const [totalPages, setTotalPages] = useState(1)
   
   const ARTICLES_PER_PAGE = 9
 
   useEffect(() => {
     fetchArticles()
   }, [])
-
-  useEffect(() => {
-    filterArticles()
-  }, [articles, searchTerm, selectedCategory, selectedTag])
 
   useEffect(() => {
     setCurrentPage(1) // Reset to first page when filters change
@@ -76,7 +71,7 @@ export default function Insights() {
     }
   }
 
-  const filterArticles = () => {
+  const filteredArticles = useMemo(() => {
     let filtered = articles
 
     // Filter by search term
@@ -97,9 +92,10 @@ export default function Insights() {
       filtered = filtered.filter(article => article.tags?.includes(selectedTag))
     }
 
-    setFilteredArticles(filtered)
-    setTotalPages(Math.ceil(filtered.length / ARTICLES_PER_PAGE))
-  }
+    return filtered
+  }, [articles, searchTerm, selectedCategory, selectedTag])
+
+  const totalPages = Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE)
 
   // Get current page articles
   const getCurrentPageArticles = () => {
@@ -243,11 +239,13 @@ export default function Insights() {
             {getCurrentPageArticles().map((article) => (
               <Link key={article.id} href={`/insights/${article.slug}`}>
                 <Card className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer h-full">
-                  <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={article.cover_image || '/api/placeholder/600/400'} 
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src={article.cover_image || '/placeholder.svg'}
                       alt={article.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <CardHeader>
