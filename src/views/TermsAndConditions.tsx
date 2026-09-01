@@ -4,15 +4,28 @@ import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Card, CardContent } from '@/components/ui/card';
 
-const TermsAndConditions = () => {
-  const [content, setContent] = useState('');
-  const [loading, setLoading] = useState(true);
+type TermsAndConditionsProps = {
+  initialContent?: string;
+};
+
+const TermsAndConditions = ({ initialContent = '' }: TermsAndConditionsProps) => {
+  const [content, setContent] = useState(initialContent);
+  const [loading, setLoading] = useState(!initialContent);
 
   useEffect(() => {
+    if (initialContent) {
+      return;
+    }
+
     // Load markdown content
     const loadContent = async () => {
       try {
-        const response = await fetch('/src/files/terms-and-conditions.md');
+        const response = await fetch('/files/terms-and-conditions.md');
+
+        if (!response.ok) {
+          throw new Error(`Failed to load terms and conditions: ${response.status}`);
+        }
+
         const text = await response.text();
         setContent(text);
       } catch (error) {
@@ -24,7 +37,7 @@ const TermsAndConditions = () => {
     };
 
     loadContent();
-  }, []);
+  }, [initialContent]);
 
   if (loading) {
     return (

@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
 import PrivacyPolicy from '@/views/PrivacyPolicy'
 
 export const metadata: Metadata = {
@@ -8,4 +10,11 @@ export const metadata: Metadata = {
   alternates: { canonical: '/privacy-policy' },
 }
 
-export default PrivacyPolicy
+export default async function PrivacyPolicyPage() {
+  const content = await readFile(
+    path.join(process.cwd(), 'src/files/privacy-policy.md'),
+    'utf8',
+  )
+
+  return <PrivacyPolicy initialContent={content} />
+}

@@ -4,15 +4,28 @@ import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Card, CardContent } from "@/components/ui/card";
 
-const PrivacyPolicy = () => {
-  const [content, setContent] = useState("");
-  const [loading, setLoading] = useState(true);
+type PrivacyPolicyProps = {
+  initialContent?: string;
+};
+
+const PrivacyPolicy = ({ initialContent = "" }: PrivacyPolicyProps) => {
+  const [content, setContent] = useState(initialContent);
+  const [loading, setLoading] = useState(!initialContent);
 
   useEffect(() => {
+    if (initialContent) {
+      return;
+    }
+
     // Load markdown content
     const loadContent = async () => {
       try {
-        const response = await fetch("/src/files/privacy-policy.md");
+        const response = await fetch("/files/privacy-policy.md");
+
+        if (!response.ok) {
+          throw new Error(`Failed to load privacy policy: ${response.status}`);
+        }
+
         const text = await response.text();
         setContent(text);
       } catch (error) {
@@ -24,7 +37,7 @@ const PrivacyPolicy = () => {
     };
 
     loadContent();
-  }, []);
+  }, [initialContent]);
 
   if (loading) {
     return (

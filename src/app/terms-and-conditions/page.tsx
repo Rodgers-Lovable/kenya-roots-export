@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
 import TermsAndConditions from '@/views/TermsAndConditions'
 
 export const metadata: Metadata = {
@@ -8,4 +10,11 @@ export const metadata: Metadata = {
   alternates: { canonical: '/terms-and-conditions' },
 }
 
-export default TermsAndConditions
+export default async function TermsAndConditionsPage() {
+  const content = await readFile(
+    path.join(process.cwd(), 'src/files/terms-and-conditions.md'),
+    'utf8',
+  )
+
+  return <TermsAndConditions initialContent={content} />
+}
