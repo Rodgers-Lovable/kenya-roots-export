@@ -12,6 +12,7 @@ import {
   Shield,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import heroImage from "@/assets/hero-process.jpg";
 import cooperative from "@/assets/cooperative.jpg";
 import coffeeQuality from "@/assets/coffee-quality.jpg";
@@ -108,7 +109,7 @@ export default function Sustainability() {
         <section className="relative py-32 gradient-hero text-warm-cream overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-            style={{ backgroundImage: `url(${heroImage})` }}
+            style={{ backgroundImage: `url(${heroImage.src})` }}
           />
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <h1 className="text-5xl md:text-6xl font-playfair font-bold mb-6 text-warm-cream">
@@ -218,10 +219,10 @@ export default function Sustainability() {
                   className="overflow-hidden hover:shadow-xl transition-all duration-300 group"
                 >
                   <div className="aspect-w-16 aspect-h-9 overflow-hidden">
-                    <img
-                      src={typeof initiative.image === 'string' ? initiative.image : initiative.image.src}
+                    <Image
+                      src={initiative.image}
                       alt={initiative.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <CardContent className="p-6">

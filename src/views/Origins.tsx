@@ -13,6 +13,7 @@ import {
   Users,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import heroImage from "@/assets/hero-kenya-coffee.jpg";
 import coffeeCherry from "@/assets/coffee-cherries.jpg";
 import coffeeDrying from "@/assets/coffee-drying.jpg";
@@ -65,7 +66,7 @@ export default function Origins() {
         <section className="relative py-32 gradient-hero text-warm-cream overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-            style={{ backgroundImage: `url(${heroImage})` }}
+            style={{ backgroundImage: `url(${heroImage.src})` }}
           />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
@@ -161,10 +162,10 @@ export default function Origins() {
                   className="overflow-hidden hover:shadow-xl transition-all duration-300 group"
                 >
                   <div className="aspect-w-16 aspect-h-9 overflow-hidden">
-                    <img
-                      src={typeof region.image === 'string' ? region.image : region.image.src}
+                    <Image
+                      src={region.image}
                       alt={`${region.name} coffee region`}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <CardContent className="p-6">

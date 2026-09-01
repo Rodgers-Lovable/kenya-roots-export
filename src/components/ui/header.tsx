@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Coffee } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Logo from "@/assets/logo.png";
@@ -86,10 +86,10 @@ export function Header() {
                   className="flex items-center space-x-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <img
-                    height={5}
+                  <Image
+                    height={40}
                     width={40}
-                    src={Logo.src}
+                    src={Logo}
                     alt="Jowam coffee traders"
                   />
                   <span className="font-playfair text-xl font-bold text-warm-cream">
